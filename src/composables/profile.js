@@ -1,4 +1,4 @@
-import profile from "@/limits/profileTest.js";
+// import profile from "@/limits/profileTest.js";
 import { useAlertStore } from "@/stores";
 import { ref } from "vue";
 import Splitter from "primevue/splitter";
@@ -9,8 +9,8 @@ export function useProfile() {
 
     const blocked = ref(false);
 
-    const mandatoryComponents = profile().mandatoryComponent;
-    const componentListNotMandatory = profile().nonMandatoryComponents;
+    // const mandatoryComponents = profile().mandatoryComponent;
+    // const componentListNotMandatory = profile().nonMandatoryComponents;
 
     let listaDeFormulario = [
         {
