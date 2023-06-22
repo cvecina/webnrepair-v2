@@ -1,0 +1,21 @@
+@import './../abstracts/variables';
+
+.p-inputtext {
+    .dark & {
+        background-color: $inputDark !important;
+        color: $secondarydark !important;
+
+        &::placeholder {
+            color: $primarydark !important;
+        }
+    }
+
+    background-color: $inputLight !important;
+    font-family: map-get($map: $fonts, $key: primary) !important;
+    font-size: 1rem;
+    color: $primaryLight !important;
+
+    &::placeholder {
+        color: $primaryLight !important;
+    }
+}

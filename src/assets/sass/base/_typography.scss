@@ -1,0 +1,62 @@
+/* ********* */
+
+/* @TYPOGRAPHY */
+
+/* ********* */
+
+@import './../abstracts/variables';
+
+h1 {
+    .dark & {
+        color: $primarydark !important;
+
+    }
+
+    font-family: map-get($map: $fonts, $key: primary) !important;
+    font-size: map-get($map: $fontSize, $key: h1);
+    color: $primaryLight !important;
+}
+
+h2 {
+    .dark & {
+        color: $secondarydark !important;
+
+    }
+
+    font-family: map-get($map: $fonts, $key: primary) !important;
+    font-size: 2.5rem;
+    color: $secondaryLight !important;
+}
+
+h3 {
+    .dark & {
+        color: $terciarydark !important;
+
+    }
+
+    font-family: map-get($map: $fonts, $key: primary) !important;
+    font-size: 2rem;
+    color: $terciaryLight !important;
+}
+
+p {
+    .dark & {
+        color: $textoDefaultDark !important;
+
+    }
+
+    font-family: map-get($map: $fonts, $key: primary) !important;
+    font-size: 1rem;
+    color: $textoDefault !important;
+}
+
+a {
+    .dark & {
+        color: $textoDefaultDark !important;
+
+    }
+
+    font-family: map-get($map: $fonts, $key: comic) !important;
+    font-size: 1rem;
+    color: $textoDefault !important;
+}

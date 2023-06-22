@@ -1,0 +1,38 @@
+// *** BÁSICO ***
+// RESET
+@import 'base/normalize';
+@import 'base/reset';
+
+// VARIABLES y FUNCIONES
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// TIPOGRAFÍA
+@import 'base/typography';
+
+// *******
+// COMPONENTS
+@import 'components/buttons';
+@import 'components/inputtext';
+@import 'components/cajaColores';
+@import 'components/banner';
+@import 'components/inputswitch';
+@import 'components/accordion';
+@import 'components/splitter';
+@import 'components/dropdown';
+
+// LAYOUTS
+@import 'layout/header';
+@import 'layout/navigator';
+@import 'layout/footer';
+@import 'layout/forms';
+@import 'layout/grid';
+@import 'layout/sidebar';
+
+// PAGES
+@import 'pages/home';
+@import 'pages/contact';
+
+// THEMEs
+@import 'themes/dark';
+@import 'themes/light';

@@ -1,0 +1,34 @@
+/* ********* */
+/* @ACCORDION */
+/* ********* */
+
+@import './../abstracts/variables';
+
+.p-accordion{
+    .dark & {
+        // background-color: green !important;
+    }
+    // background-color: $primaryLight !important;
+    // border: none !important;
+}
+
+.p-accordion-header-link, .p-accordion-header-action{
+    .dark & {
+        background-color: $secondarydark !important;
+    }
+    background-color: $secondaryLight !important;
+}
+
+.p-accordion-header {
+    .dark & {
+        // background-color: $primarydark !important;
+    }
+    // background-color: $primaryLight !important;
+}
+
+.p-accordion-content {
+    .dark & {
+        background-color: $primarydark !important;
+    }
+    background-color: $primaryLight !important;
+}

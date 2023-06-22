@@ -1,0 +1,18 @@
+/* ********* */
+/* @RESET */
+/* ********* */
+/* Proteger el aunmento del tamaño de caja por los padding, en todas las cajas del proyecto */
+*{
+    box-sizing: border-box;
+}
+
+/* Eliminar el subrayado de los links <a> y el color */
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/* Elimina las viñetas de las listas <ul> */
+ul{
+    list-style-type: none;
+}

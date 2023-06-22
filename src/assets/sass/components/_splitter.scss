@@ -1,0 +1,13 @@
+/* ********* */
+/* @SPLITTER */
+/* ********* */
+
+.p-splitter	{
+    .dark & {
+        background-color: $colorBgDark!important;
+        border: none !important;
+    }
+    background-color: $colorBgLight !important;
+    border: none !important;
+
+}

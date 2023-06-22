@@ -1,0 +1,49 @@
+/* ********* */
+/* @CAJA COLORES */
+/* ********* */
+@import './../abstracts/variables';
+
+// .dark {
+.cajaColoresPrimario {
+    .dark & {
+        background-color: $primarydark !important;
+    }
+
+    background-color: $primaryLight !important;
+    width: 255px;
+    height: 202px;
+    border-radius: 30px;
+}
+
+.cajaColoresSecundario {
+    .dark & {
+        background-color: $secondarydark !important;
+    }
+
+    background-color: $secondaryLight !important;
+    width: 255px;
+    height: 202px;
+    border-radius: 30px;
+}
+
+.cajaColoresTercero {
+    .dark & {
+        background-color: $terciarydark !important;
+    }
+
+    background-color: $terciaryLight !important;
+    width: 255px;
+    height: 202px;
+    border-radius: 30px;
+}
+
+.cajaColoresDanger{
+    .dark & {
+        background-color: $dangerDark !important;
+    }
+
+    background-color: $dangerLight !important;
+    width: 255px;
+    height: 202px;
+    border-radius: 30px;
+}

@@ -1,0 +1,9 @@
+export { default as resetPasswordRepository } from './ResetPassword.vue';
+export { default as loginRepository } from './Login.vue';
+export { default as registerRepository } from './Register.vue';
+export { default as DataTableRepository } from './DataTable.vue';
+export { default as DashboardRepository } from './Dashboard.vue';
+export { default as ProfileRepository } from './Profile.vue';
+export { default as FormularioRepository } from './Formulario.vue';
+export { default as GalleryRepository } from './Gallery.vue';
+export { default as CardListRepository } from './CardList.vue';

@@ -1,0 +1,28 @@
+/* ********* */
+/* @BUTTONS */
+/* ********* */
+@import './../abstracts/variables';
+
+    .p-button {
+        .dark & {
+            background-color: $primarydark !important;
+        }
+        background-color: $primaryLight !important;
+        border: none !important;
+    }
+
+    .p-button-secondary {
+        .dark & {
+            background-color: $secondarydark !important;
+        }
+        background-color: $secondaryLight !important;
+        border: none !important;
+    }
+
+    .p-button-danger {
+        .dark & {
+            background-color: $dangerDark!important;
+        }
+        background-color: $dangerLight !important;
+        border: none !important;
+    }

@@ -1,0 +1,99 @@
+/* ********* */
+
+
+/* @VARIABLES */
+
+
+/* ********* */
+
+$colorBgLight: #fff2f2;
+$colorBgDark: #adb5bd;
+
+$colorEspecial: #FFC542;
+
+$grays: (
+    "gray-100": #f8f9fa,
+    "gray-200": #e9ecef,
+    "gray-300": #dee2e6,
+    "gray-400": #ced4da,
+    "gray-500": #adb5bd,
+    "gray-600": #6c757d,
+    "gray-700": #495057,
+    "gray-800": #343a40,
+    "gray-900": #212529,
+);
+/*
+
+- colorsDefault:
+    - light:
+        "primary": #1bcccc;
+        "secondary": #FFC542;
+        "terciary": #50B5FF;
+        "danger": #FF6B6B;
+        "input": #f5f5f5;
+        texto: (
+            "parrafoDefault": #343a40;
+            ),
+
+
+    - dark:
+        "primary": #668266,
+        "secondary": #cc9a00,
+        "terciary": #006bb3,
+        "danger": #FF6B6B,
+        "input": #c7c7c7,
+
+*/
+
+$colorsDefault: (
+    light: ("primary": #4df05d,
+        "secondary": #50FAF7,
+        "terciary": #54E3B8,
+        "danger": #FF6B6B,
+        "input": #f5f5f5,
+        texto: ("parrafoDefault": map-get($map: $grays, $key: gray-800),
+        "headerTextDefault": map-get($map: $grays, $key: gray-800),
+        ),
+    ),
+    dark: ("primary": #0e4174,
+        "secondary": #0e4378,
+        "terciary": #1e8bf7,
+        "danger": #bc0000,
+        "input": #c7c7c7,
+        texto: ("parrafoDefault":  map-get($map: $grays, $key: gray-100),
+        "headerTextDefault": map-get($map: $grays, $key: gray-500),
+        ),
+    ),
+);
+
+$textoDefault: map-get(map-get(map-get($colorsDefault, light), texto), parrafoDefault);
+$headerTextoDefault: map-get(map-get(map-get($colorsDefault, light), texto), headerTextDefault);
+$textoDefaultDark: map-get(map-get(map-get($colorsDefault, dark), texto), parrafoDefault);
+$headerTextoDefaultDark: map-get(map-get(map-get($colorsDefault, dark), texto), headerTextDefault);
+
+$primarydark: map-get(map-get($colorsDefault, dark), primary);
+$secondarydark: map-get(map-get($colorsDefault, dark), secondary);
+$terciarydark: map-get(map-get($colorsDefault, dark), terciary);
+$inputDark: map-get(map-get($colorsDefault, dark), input);
+$dangerDark: map-get(map-get($colorsDefault, dark), danger);
+
+$primaryLight: map-get(map-get($colorsDefault, light), primary);
+$secondaryLight: map-get(map-get($colorsDefault, light), secondary);
+$terciaryLight: map-get(map-get($colorsDefault, light), terciary);
+$inputLight: map-get(map-get($colorsDefault, light), input);
+$dangerLight: map-get(map-get($colorsDefault, light), danger);
+
+// array fuentes
+$fonts: (
+    "primary": "Roboto",
+    "secondary": "Arial",
+    "terciary": "Times New Roman",
+    "comic": "Comic Sans MS"
+);
+
+$fontSize: (
+    "h1": 3rem,
+    "h2": 2.5rem,
+    "h3": 2rem,
+    "p": 1rem,
+    )

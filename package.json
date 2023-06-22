@@ -1,0 +1,37 @@
+{
+  "name": "projecttemplate",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.14",
+    "@nhost/apollo": "^5.2.6",
+    "@nhost/vue": "^1.13.24",
+    "@vue/apollo-composable": "^4.0.0-beta.4",
+    "@vueuse/core": "^10.1.2",
+    "axios": "^1.4.0",
+    "crypto-js": "^4.1.1",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
+    "js-base64": "^3.7.5",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "pinia": "^2.0.35",
+    "primeflex": "^3.3.0",
+    "primeicons": "^6.0.1",
+    "primevue": "^3.27.0",
+    "vue": "^3.2.47",
+    "vue-i18n": "^9.2.2",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "sass": "^1.62.1",
+    "vite": "^4.3.2"
+  }
+}

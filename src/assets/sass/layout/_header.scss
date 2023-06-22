@@ -1,0 +1,72 @@
+/* ********* */
+/* @HEADER */
+/* ********* */
+@import './../abstracts/variables';
+
+.p-menubar,
+.p-submenu-list {
+    .dark & {
+        background-color: $primarydark !important;
+        border-radius: 0px !important;
+    }
+
+    background-color: $primaryLight !important;
+    border: none !important;
+    border-radius: 0px !important;
+
+}
+
+.p-menuitem-text, .p-menuitem-icon {
+    .dark & {
+        color: $headerTextoDefaultDark !important;
+    }
+
+    color: $headerTextoDefault !important;
+}
+
+.p-menuitem-content {
+    .dark & {
+        background-color: $primarydark !important;
+    }
+
+    background-color: $primaryLight !important;
+
+    &:hover {
+        .dark & {
+            background-color: $terciarydark !important;
+        }
+
+        background-color: $terciaryLight !important;
+    }
+}
+
+// .p-menuitem-icon {
+//     .dark & {
+//         color: $headerTextoDefaultDark !important;
+//     }
+
+//     color: $headerTextoDefault !important;
+// }
+
+.p-menubar-button {
+    .dark & {
+        color: $terciarydark !important;
+    }
+
+    color: $terciaryLight !important;
+}
+
+.p-menubar-root-list {
+    .dark & {
+        background-color: $primarydark !important;
+    }
+
+    background-color: $primaryLight !important;
+}
+
+// .p-menuitem-active{
+//     .dark &{
+//         background-color: $primarydark !important;
+//     }
+//     // background-color: $primarydark !important;
+// }

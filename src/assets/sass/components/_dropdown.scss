@@ -1,0 +1,40 @@
+.p-dropdown {
+    .dark & {
+        background-color: $primarydark !important;
+    }
+
+    background-color: $primaryLight !important;
+
+}
+
+.p-dropdown-label {
+    .dark & {
+        color: $primarydark !important;
+        border: none !important;
+    }
+
+    color: $primaryLight !important;
+    border: none !important;
+
+}
+
+.p-dropdown-items-wrapper {
+    .dark & {
+        background-color: $primarydark !important;
+        border: none !important;
+    }
+
+    background-color: $primaryLight !important;
+    border: none !important;
+
+}
+
+.p-overlay-open	{
+    .dark & {
+        background-color: $primarydark !important;
+        border: none !important;
+    }
+    background-color: $primaryLight !important;
+    border: none !important;
+
+}
