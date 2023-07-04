@@ -106,7 +106,7 @@ const handleSignOut = async () => {
   <Menubar :model="items">
     <template #end>
       <div class="flex justify-content-center align-items-center">
-      <DarkMode class="m-2"></DarkMode>
+      <!-- <DarkMode class="m-2"></DarkMode> -->
       <LanguageSelector></LanguageSelector>
     </div>
     </template>
