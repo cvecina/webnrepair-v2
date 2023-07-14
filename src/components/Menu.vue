@@ -1,33 +1,37 @@
 <script setup>
 import Menubar from "primevue/menubar";
 import LanguageSelector from "@/components/LanguageSelector.vue";
-import {DarkMode} from "@/components"
-import { ref } from "vue";
+import { DarkMode } from "@/components";
+import { ref, computed } from "vue";
+import { useI18n } from "vue-i18n";
 import { useAuthenticated, useSignOut } from "@nhost/vue";
 import { useRouter } from "vue-router";
+const { t } = useI18n();
 const router = useRouter();
+
+const Home = computed(() => t("menu.home"));
 
 const isAuthenticated = useAuthenticated();
 const { signOut } = useSignOut();
 
 const items = ref([
   {
-    label: "Home",
-    icon: "pi pi-fw pi-file",
+    label: Home,
+    icon: "pi pi-fw pi-home",
     to: `/`,
   },
-  {
-    label: "Login",
-    icon: "pi pi-fw pi-pencil",
-    to: `/login`,
-    visible: () => !isAuthenticated.value,
-  },
-  {
-    label: "Register",
-    icon: "pi pi-fw pi-user",
-    to: `/register`,
-    visible: () => !isAuthenticated.value,
-  },
+  // {
+  //   label: "Login",
+  //   icon: "pi pi-fw pi-pencil",
+  //   to: `/login`,
+  //   visible: () => !isAuthenticated.value,
+  // },
+  // {
+  //   label: "Register",
+  //   icon: "pi pi-fw pi-user",
+  //   to: `/register`,
+  //   visible: () => !isAuthenticated.value,
+  // },
   // {
   //   label: "Activity List",
   //   icon: "pi pi-fw pi-calendar",
@@ -38,11 +42,11 @@ const items = ref([
   //   icon: "pi pi-fw pi-calendar",
   //   to: `/categorylist`,
   // },
-  {
-    label: "Estilos",
-    icon: "pi pi-fw pi-calendar",
-    to: `/estilos`,
-  },
+  // {
+  //   label: "Estilos",
+  //   icon: "pi pi-fw pi-calendar",
+  //   to: `/estilos`,
+  // },
   // {
   //   label: "Reset Password",
   //   icon: "pi pi-fw pi-calendar",
@@ -74,12 +78,12 @@ const items = ref([
     icon: "pi pi-fw pi-pencil",
     visible: () => isAuthenticated.value,
     items: [
-      {
-        label: "Profile",
-        icon: "pi pi-fw pi-pencil",
-        to: `/profile`,
-        visible: () => isAuthenticated.value,
-      },
+      // {
+      //   label: "Profile",
+      //   icon: "pi pi-fw pi-pencil",
+      //   to: `/profile`,
+      //   visible: () => isAuthenticated.value,
+      // },
       {
         label: "Change Password",
         icon: "pi pi-fw pi-refresh",
@@ -106,9 +110,9 @@ const handleSignOut = async () => {
   <Menubar :model="items">
     <template #end>
       <div class="flex justify-content-center align-items-center">
-      <!-- <DarkMode class="m-2"></DarkMode> -->
-      <LanguageSelector></LanguageSelector>
-    </div>
+        <!-- <DarkMode class="m-2"></DarkMode> -->
+        <LanguageSelector></LanguageSelector>
+      </div>
     </template>
   </Menubar>
 </template>

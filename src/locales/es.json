@@ -1,9 +1,4 @@
 {
-    "Hola": "Hola",
-    "Code": "Muy buenas tardes",
-    "Save": "Guardar",
-    "Cancel": "Cancelar",
-    "pageNotFoundTitle": "Página no encontrada",
-    "pageNotFound": "Vuelva al inicio con este botón"
+    "menu.home": "Inicio"
 
 }

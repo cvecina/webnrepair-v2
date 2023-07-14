@@ -56,7 +56,7 @@ a {
 
     }
 
-    font-family: map-get($map: $fonts, $key: comic) !important;
+    font-family: map-get($map: $fonts, $key: primary) !important;
     font-size: 1rem;
     color: $textoDefault !important;
 }
