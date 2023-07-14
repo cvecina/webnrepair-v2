@@ -1,5 +1,7 @@
 <template>
-<h1>Home</h1>
+    <SectionHome />
+    <Reviews></Reviews>
 </template>
 <script setup lang="ts">
+import { SectionHome, Reviews } from "@/components"
 </script>

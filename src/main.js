@@ -15,8 +15,11 @@ import "primeicons/primeicons.css"
 import "primeflex/primeflex.css"
 import "@/assets/sass/main.scss"
 import "primevue/resources/themes/lara-light-indigo/theme.css";
+// import "./style.css";
 import { nhost } from './nhostConfig'
 import { inicializarAxios } from "@/utils/inicializarAxios";
+import StyleClass from 'primevue/styleclass';
+
 inicializarAxios();
 
 const pinia = createPinia();
@@ -28,6 +31,7 @@ app.use(pinia);
 const apolloClient = createApolloClient({ nhost })
 export default apolloClient;
 
+app.directive('styleclass', StyleClass);
 app
     .use(router)
     .use(PrimeVue)

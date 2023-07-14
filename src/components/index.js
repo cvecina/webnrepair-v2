@@ -10,3 +10,12 @@ export { default as Loader}
 from './Loader.vue';
 export { default as DarkMode}
 from './DarkMode.vue';
+
+export { default as SectionHome}
+from './home/SectionHome.vue';
+
+export { default as ContactForm}
+from './contact/ContactForm.vue';
+
+export { default as Reviews}
+from './reviews/Reviews.vue';

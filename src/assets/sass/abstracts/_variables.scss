@@ -46,13 +46,13 @@ $grays: (
 */
 
 $colorsDefault: (
-    light: ("primary": #4df05d,
+    light: ("primary": #171717,
         "secondary": #50FAF7,
         "terciary": #54E3B8,
         "danger": #FF6B6B,
         "input": #f5f5f5,
-        texto: ("parrafoDefault": map-get($map: $grays, $key: gray-800),
-        "headerTextDefault": map-get($map: $grays, $key: gray-800),
+        texto: ("parrafoDefault": map-get($map: $grays, $key: gray-200),
+        "headerTextDefault": map-get($map: $grays, $key: gray-200),
         ),
     ),
     dark: ("primary": #0e4174,
@@ -60,8 +60,8 @@ $colorsDefault: (
         "terciary": #1e8bf7,
         "danger": #bc0000,
         "input": #c7c7c7,
-        texto: ("parrafoDefault":  map-get($map: $grays, $key: gray-100),
-        "headerTextDefault": map-get($map: $grays, $key: gray-500),
+        texto: ("parrafoDefault":  map-get($map: $grays, $key: gray-200),
+        "headerTextDefault": map-get($map: $grays, $key: gray-200),
         ),
     ),
 );
@@ -88,7 +88,7 @@ $fonts: (
     "primary": "Roboto",
     "secondary": "Arial",
     "terciary": "Times New Roman",
-    "comic": "Comic Sans MS"
+    "cuaternary": "Courier New",
 );
 
 $fontSize: (

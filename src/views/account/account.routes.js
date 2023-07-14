@@ -1,9 +1,13 @@
 import { nhost } from "@/nhostConfig";
 import { resetPassword, login, register, resetPasswordForm } from "@/views/account";
 export default {
-    children: [{
+    children: [
+        {
         path: "/reset-password",
         component: resetPassword,
+        beforeEnter: async (to) => {
+            return (await nhost.auth.isAuthenticatedAsync());
+        },
     },
     {
         path: "/reset-password-form",
@@ -15,10 +19,16 @@ export default {
     {
         path: "/login",
         component: login,
+        beforeEnter: async (to) => {
+            return (await nhost.auth.isAuthenticatedAsync());
+        },
     },
     {
         path: "/register",
         component: register,
+        beforeEnter: async (to) => {
+            return (await nhost.auth.isAuthenticatedAsync());
+        },
     },
     ],
 
