@@ -15,8 +15,13 @@
       <InputText type="password" id="password" :placeholder="passwordLabel" v-model="password" />
     </div>
     <br>
-    <div class="p-field" v-if="showButton">
-      <Button @click="signIn()">{{ buttonLabel }}</Button>
+    <div class="p-field align-center justify-center" v-if="showButton">
+      <span v-if="showRecuerdame">
+      <Checkbox v-model="recordarme" :binary="true" />
+        <label class="m-2" for="checkbox">Recuérdame</label>
+        <br>
+      </span>
+      <Button class="m-2" @click="signIn()">{{ buttonLabel }}</Button>
     </div>
     <br>
     <div class="p-field" v-if="showResetPassword">
@@ -31,11 +36,11 @@
   </div>
 </template>
   <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import InputText from "primevue/inputtext";
 import Button from "primevue/button";
 import returnSignIn from "../utils/returnSignIn.js";
-
+import Checkbox from 'primevue/checkbox';
 const signIn = () => {
   const data = returnSignIn(email.value, password.value, options.value);
   if (data) {
@@ -51,7 +56,20 @@ const register = () => {
   emit("register");
 };
 
-const emit = defineEmits(["signIn", "errorLogin", "resetPassword", "register"]);
+const recordarme = ref(false);
+
+watch(
+  () => recordarme.value,
+  (value) => {
+    sendRecordar();
+  }
+)
+
+const sendRecordar = () => {
+  emit("sendRecordar", recordarme.value);
+}
+
+const emit = defineEmits(["signIn", "errorLogin", "resetPassword", "register", "sendRecordar"]);
 const props = defineProps({
   title: {
     type: String,
@@ -82,6 +100,11 @@ const props = defineProps({
     type: Boolean,
     required: false,
     default: true,
+  },
+  showRecuerdame:{
+    type: Boolean,
+    required: false,
+    default: false,
   },
   showTitle: {
     type: Boolean,

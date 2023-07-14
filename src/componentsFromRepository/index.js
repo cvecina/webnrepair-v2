@@ -7,3 +7,7 @@ export { default as ProfileRepository } from './Profile.vue';
 export { default as FormularioRepository } from './Formulario.vue';
 export { default as GalleryRepository } from './Gallery.vue';
 export { default as CardListRepository } from './CardList.vue';
+export { default as CardRepository } from './Card.vue';
+export { default as Resumen } from './Resumen.vue';
+export { default as MultiSelectRepository } from './MultiSelect.vue';
+export { default as SearchRepository } from './Search.vue';

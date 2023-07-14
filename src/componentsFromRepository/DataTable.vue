@@ -126,7 +126,6 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="card">
     <!-- create one button -->
     <Button
       v-if="showCreate"
@@ -138,20 +137,23 @@ const props = defineProps({
       v-model:filters="filters"
       @filter="totalFiltrado"
       :paginator="showPagination"
-      :rows="10"
+      responsiveLayout="scroll"
+      :rows="5"
       :value="data"
-      tableStyle="min-width: 50rem"
       id="tablaDefault"
-    >
+      >
       <template #header v-if="showHeader">
-        <div class="grid formgrid p-fluid">
-          <h1 v-if="showTitle" class="field mb-12 col-12 md:col-6 sm:col-3">
+        <div
+          class="grid formgrid p-fluid"
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <h1 v-if="showTitle" class="field col-12 md:col-6 sm:col-3">
             {{ title }}
           </h1>
-          <h3 v-if="showCounter" class="field mb-12 col-12 md:col-3 sm:col-3">
+          <h3 v-if="showCounter" class="field col-12 md:col-3 sm:col-3">
             {{ contador }}
           </h3>
-          <div v-if="showSearch" class="field mb-12 col-12 md:col-3 sm:col-3">
+          <div v-if="showSearch" class="field col-12 md:col-3 sm:col-3">
             <span class="p-input-icon-left">
               <i class="pi pi-search" />
               <InputText
@@ -188,11 +190,11 @@ const props = defineProps({
             :key="btn"
             :icon="btn.icon"
             :class="btn.class"
+            :label="btn.label"
             @click="$emit(btn.click, slotProps.data)"
           >
           </Button>
         </template>
       </Column>
     </DataTable>
-  </div>
 </template>
