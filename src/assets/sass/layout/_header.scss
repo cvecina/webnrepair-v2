@@ -3,6 +3,10 @@
 /* ********* */
 @import './../abstracts/variables';
 
+body{
+    background-color: $colorBgLight !important;
+}
+
 .p-menubar,
 .p-submenu-list {
     .dark & {

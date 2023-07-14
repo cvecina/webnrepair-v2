@@ -1,5 +1,5 @@
 <template>
-  <div class="surface-ground px-4 py-8 md:px-6 lg:px-8">
+  <div class=" px-4 py-8 md:px-6 lg:px-8">
     <div class="text-900 font-medium text-2xl mb-5"><h3>Reviews</h3></div>
     <div class="grid -mt-3 -ml-3 -mr-3">
       <div
