@@ -76,7 +76,7 @@ const menuItems = ref([
         <i class="pi pi-bars text-4xl text-white"></i>
       </a>
       <nav
-        class="bg-red align-items-center flex-grow-1 justify-content-between hidden lg:flex absolute lg:static w-full left-0 top-100 px-6 lg:px-0 shadow-2 lg:shadow-none lg:bg-transparent"
+        class="bg-red align-items-center flex-grow-1 justify-content-between hidden lg:flex absolute lg:static w-full left-0 top-100 px-6 lg:px-0 shadow-2 lg:shadow-none lg:bg-transparent" style="background-color: #171717; !important"
       >
         <ul
           class="list-none p-0 m-0 lg:m-auto flex lg:align-items-center text-gray-400 select-none flex-column lg:flex-row"

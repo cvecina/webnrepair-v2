@@ -12,23 +12,52 @@
       "
     >
       <div class="text-4xl text-white mb-3 font-medium">
-        Promo Title Placeholder
+        {{ title }}
       </div>
-      <p class="line-height-3 mt-0 mb-7 p-0 text-white text-2xl">
-        Malesuada bibendum arcu vitae elementum curabitur vitae nunc. Aliquam
-        nulla facilisi cras fermentum. Et egestas quis ipsum suspendisse
-        ultrices.
+      <p
+        v-if="description"
+        class="line-height-3 mt-0 mb-7 p-0 text-white text-2xl"
+      >
+        {{ description }}
       </p>
-      <Button label="READ STORY" class="p-button-secondary text-2xl"></Button>
+      <Button
+        v-if="button"
+        :label="buttonLabel"
+        class="p-button-secondary text-2xl"
+      ></Button>
     </div>
     <div
+      v-if="image"
       class="w-full md:w-6 bg-no-repeat bg-cover"
-      style="
-        background: url('https://img.freepik.com/vector-gratis/fondo-neon-placa-circuito_23-2148335792.jpg');
-        min-height: 400px;
-      "
+      style="min-height: 400px"
+      :style="{ backgroundImage: `url(${image})` }"
     ></div>
   </div>
 </template>
 <script setup>
+import Button from "primevue/button";
+const props = defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: false,
+  },
+  button: {
+    type: Boolean,
+    required: false,
+    default: true,
+  },
+  buttonLabel: {
+    type: String,
+    required: false,
+    default: "READ STORY",
+  },
+  image: {
+    type: String,
+    required: false,
+  },
+});
 </script>
