@@ -55,14 +55,13 @@ const menuItems = ref([
 ]);
 </script>
 <template>
-  <section
-    class="h-full"
-    style="background-color: #171717; !important"
-  >
+  <section class="h-full" style="background-color: #171717; !important">
     <div
       class="py-3 px-6 shadow-2 flex align-items-center justify-content-between relative"
     >
-      <img src="/logo.png" alt="Image" height="50" />
+      <router-link to="/">
+        <img src="/logo.png" alt="Image" height="50" />
+      </router-link>
       <a
         v-ripple
         class="p-ripple cursor-pointer block lg:hidden text-gray-400"
@@ -76,7 +75,8 @@ const menuItems = ref([
         <i class="pi pi-bars text-4xl text-white"></i>
       </a>
       <nav
-        class="bg-red align-items-center flex-grow-1 justify-content-between hidden lg:flex absolute lg:static w-full left-0 top-100 px-6 lg:px-0 shadow-2 lg:shadow-none lg:bg-transparent" style="background-color: #171717; !important"
+        class="bg-red align-items-center flex-grow-1 justify-content-between hidden lg:flex absolute lg:static w-full left-0 top-100 px-6 lg:px-0 shadow-2 lg:shadow-none lg:bg-transparent"
+        style="background-color: #171717; !important"
       >
         <ul
           class="list-none p-0 m-0 lg:m-auto flex lg:align-items-center text-gray-400 select-none flex-column lg:flex-row"
@@ -93,10 +93,12 @@ const menuItems = ref([
                 hideOnOutsideClick: true,
               }"
             >
-              <span class="font-semibold text-xl" style="color: #b8caff !important;">
-              <router-link to="/">{{
-                item.title
-              }}</router-link></span>
+              <span
+                class="font-semibold text-xl"
+                style="color: #b8caff !important"
+              >
+                <router-link to="/">{{ item.title }}</router-link></span
+              >
             </a>
             <div
               v-if="item.subItems"
@@ -151,6 +153,7 @@ const menuItems = ref([
             @click="goToContact"
             style="background-color: #274bb6 !important; color: #fff; !important"
           ></Button>
+          <Button @click="handleSignOut" label="Cerrar sesión" v-if="isAuthenticated"></Button>
         </div>
       </nav>
     </div>

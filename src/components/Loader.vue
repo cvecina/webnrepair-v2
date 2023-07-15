@@ -1,5 +1,5 @@
 <template>
-    <div class="loader" v-if="loading">
+    <div class="loader" v-if="loading" style="color: red">
       <div class="spinner">
         <i class="pi pi-spin pi-spinner"></i>
       </div>

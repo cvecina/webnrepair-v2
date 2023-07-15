@@ -19,9 +19,6 @@ export default {
     {
         path: "/login",
         component: login,
-        beforeEnter: async (to) => {
-            return (await nhost.auth.isAuthenticatedAsync());
-        },
     },
     {
         path: "/register",

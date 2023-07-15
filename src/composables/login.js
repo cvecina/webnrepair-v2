@@ -25,7 +25,7 @@ export function useLogin() {
         }
         if (isSuccess.value) {
             alertStore.success("Inicio de sesión correcto");
-            router.push("/profile")
+            router.push("/admin")
         }
     });
 

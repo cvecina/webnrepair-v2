@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import homeRoutes from "./home.routes";
+import adminRoutes from "./admin.routes";
 import accountRoutes from "@/views/account/account.routes";
 import NotFound from "@/components/NotFound.vue";
 
@@ -11,6 +12,7 @@ export const router = createRouter({
     linkActiveClass: "active",
     routes: [
         { ...homeRoutes },
+        { ...adminRoutes},
         { ...accountRoutes },
         {
             path: "/not-found",

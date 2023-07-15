@@ -7,8 +7,38 @@
     buttonLabel="Contacta con nosotros"
   />
 
-  <Reviews></Reviews>
+  <Reviews :reviews="opinionesStore.opiniones"></Reviews>
 </template>
 <script setup lang="ts">
 import { SectionHome, Reviews } from "@/components";
+import { useOpinionesStore } from "@/stores";
+import { ref, computed, watch, onMounted } from "vue";
+import gql from "graphql-tag";
+import { useSubscription } from "@vue/apollo-composable";
+
+const opinionesStore = useOpinionesStore();
+
+let subscription = gql`
+  subscription MySubscription {
+    opiniones {
+      title
+      comentario
+      id
+      rating
+    }
+  }
+`;
+
+const { result, loading } = useSubscription(subscription);
+const getOpiniones = computed(() => {
+  if (result.value) {
+    opinionesStore.setOpiniones(result.value.opiniones);
+  }
+
+  return result.value;
+});
+
+onMounted(async () => {
+  watch(getOpiniones, (newValue) => {});
+});
 </script>

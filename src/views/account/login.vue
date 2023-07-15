@@ -2,12 +2,12 @@
   <loginRepository
     @sign-in="signIn"
     @error="errorLogin"
-    :showResetPassword="true"
-    :showRegister="true"
-    @register="register"
+    :showResetPassword="false"
+    :showRegister="false"
     @reset-password="resetPassword"
-  ></loginRepository>
-</template>
+    ></loginRepository>
+  </template>
+    <!-- @register="register" -->
 
 <script setup>
 import { loginRepository } from "@/componentsFromRepository";
