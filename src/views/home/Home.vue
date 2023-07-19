@@ -6,11 +6,11 @@
     :button="true"
     buttonLabel="Contacta con nosotros"
   />
-
+  <SectionAbout></SectionAbout>
   <Reviews :reviews="opinionesStore.opiniones"></Reviews>
 </template>
 <script setup lang="ts">
-import { SectionHome, Reviews } from "@/components";
+import { SectionHome, SectionAbout, Reviews } from "@/components";
 import { useOpinionesStore } from "@/stores";
 import { ref, computed, watch, onMounted } from "vue";
 import gql from "graphql-tag";

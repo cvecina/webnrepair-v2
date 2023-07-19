@@ -1,8 +1,11 @@
 <template>
   <div
-    class="text-center px-4 py-8 md:px-6 lg:px-8 flex flex-column justify-center align-items-center"
+    class=" text-center px-4 py-8 md:px-6 lg:px-8 flex flex-column justify-center align-items-center"
     v-if="reviews.length >= 1"
   >
+  <div class="font-bold text-300 text-3xl mb-8 text-center">
+        Opiniones de nuestros clientes
+    </div>
     <div class="flex flex-column md:flex-row">
       <div
         class="flex flex-grow-1 mb-4 md:mb-0 md:px-4 py-4 md:py-0"

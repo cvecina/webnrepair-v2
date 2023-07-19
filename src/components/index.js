@@ -14,6 +14,9 @@ from './DarkMode.vue';
 export { default as SectionHome}
 from './home/SectionHome.vue';
 
+export { default as SectionAbout}
+from './home/SectionAbout.vue';
+
 export { default as ContactForm}
 from './contact/ContactForm.vue';
 
