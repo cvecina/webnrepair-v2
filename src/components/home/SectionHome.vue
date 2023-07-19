@@ -14,7 +14,7 @@
       <div class="text-4xl text-white mb-3 font-medium">
         {{ title }}
       </div>
-      <div class="m-2" style="height: 250px !important;">
+      <div class="m-2" style="height: 250px !important">
         <p
           v-if="description"
           class="line-height-3 mt-0 mb-7 p-0 text-white text-2xl"

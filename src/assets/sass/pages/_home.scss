@@ -8,14 +8,20 @@
   white-space: nowrap;
   overflow: hidden;
   border-right: 4px solid;
-  width: 20ch;
+  width: 20ch; // Set the initial width for the animation
   animation: typing calc(0.2s * 25) steps(25) forwards;
+
+  @media screen and (max-width: 768px) {
+    // Adjust the breakpoint to your preference
+    width: 100%; // Set the width to 100% for smaller screens
+  }
 }
 
 @keyframes typing {
   0% {
     width: 0;
   }
+
   100% {
     width: 100%;
   }

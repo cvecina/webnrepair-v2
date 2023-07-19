@@ -1,44 +1,37 @@
 <template>
-  <div
-    class="text-center px-4 py-8 md:px-6 lg:px-8 flex flex-column justify-center align-items-center"
-    v-if="reviews.length >= 1"
-  >
-    <div class="flex flex-column md:flex-row">
+  <div class="px-4 py-8 md:px-6 lg:px-8">
+    <div class="text-900 font-medium text-2xl mb-5"><h3>Reviews</h3></div>
+    <div class="grid -mt-3 -ml-3 -mr-3" v-if="reviews.length >= 1">
       <div
-        class="flex flex-grow-1 mb-4 md:mb-0 md:px-4 py-4 md:py-0"
         v-for="(review, index) in reviews"
         :key="index"
+        class="col-12 xl:col-4"
       >
-        <div class="shadow-2 surface-card border-round relative">
-          <img
-            src="/icon_user.png"
-            width="100"
-            height="100"
-            class="absolute left-50"
-            style="margin-left: -50px; top: -50px"
-          />
-
-          <div
-            class="px-4 pb-4 pt-8 relative flex flex-column justify-center align-items-center"
-          >
-            <Rating v-model="review.rating" :cancel="false" readonly></Rating>
-            <br />
-            <p
-              class="text-900 font-italic line-height-3 text-lg m-0 pb-4 border-bottom-1 surface-border"
-            >
-              {{ review.comentario }}
-            </p>
-
-            <div class="text-900 font-semibold line-height-3 mt-4">
-              {{ review.title }}
+        <div class="p-2">
+          <div class="shadow-2 p-4 surface-card" style="border-radius: 1rem">
+            <div class="flex">
+              <div class="flex flex-column w-9 pr-4">
+                <span class="mb-4 text-900 font-medium">{{ review.title }}</span>
+           
+                <p class="text-700 m-0 p-0 line-height-3">
+                  {{ review.comentario }}
+                </p>
+                <span class="mb-3">
+                  <Rating
+                    v-model="review.rating"
+                    :cancel="false"
+                    readonly
+                  ></Rating>
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div v-else>
-    <h3>No hay opiniones todavía...</h3>
+    <div v-else>
+      <h3>No hay opiniones todavía...</h3>
+    </div>
   </div>
 </template>
 

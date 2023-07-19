@@ -1,9 +1,10 @@
 <script setup>
 import Alert from "@/components/Alert.vue";
 import Menu from "@/components/Menu.vue";
+import Footer from "@/components/Footer.vue";
 
 import ConfirmDialog from "primevue/confirmdialog";
-import { useFavicon } from '@vueuse/core'
+import { useFavicon } from '@vueuse/core';
 
 const icon = useFavicon()
 
@@ -21,5 +22,6 @@ icon.value = '/logoMini.png' // change current icon
     </template>
   </ConfirmDialog>
   <router-view></router-view>
+  <Footer></Footer>
   <Alert />
 </template>

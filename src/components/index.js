@@ -19,3 +19,6 @@ from './contact/ContactForm.vue';
 
 export { default as Reviews}
 from './reviews/Reviews.vue';
+
+export { default as Footer}
+from './Footer.vue';

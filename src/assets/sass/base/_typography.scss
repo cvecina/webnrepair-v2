@@ -12,7 +12,7 @@ h1 {
 
     }
 
-    font-family: map-get($map: $fonts, $key: cuaternary) !important;
+    font-family: map-get($map: $fonts, $key: secondary) !important;
     font-size: map-get($map: $fontSize, $key: h1);
     color: $secondaryLight !important;
 }
@@ -23,7 +23,7 @@ h2 {
 
     }
 
-    font-family: map-get($map: $fonts, $key: cuaternary) !important;
+    font-family: map-get($map: $fonts, $key: secondary) !important;
     font-size: 2.5rem;
     color: $secondaryLight !important;
 }
@@ -34,7 +34,7 @@ h3 {
 
     }
 
-    font-family: map-get($map: $fonts, $key: cuaternary) !important;
+    font-family: map-get($map: $fonts, $key: secondary) !important;
     font-size: 2rem;
     color: $secondaryLight !important;
 }
@@ -45,7 +45,7 @@ p {
 
     }
 
-    font-family: map-get($map: $fonts, $key: cuaternary) !important;
+    font-family: map-get($map: $fonts, $key: secondary) !important;
     font-size: 1rem;
     color: $secondaryLight !important;
     text-align: justify !important;
@@ -57,7 +57,7 @@ a {
 
     }
 
-    font-family: map-get($map: $fonts, $key: cuaternary) !important;
+    font-family: map-get($map: $fonts, $key: secondary) !important;
     font-size: 1rem;
     color: $secondaryLight !important;
 }
