@@ -25,6 +25,7 @@
         v-if="button"
         :label="buttonLabel"
         class="p-button-secondary text-2xl"
+        @click="goToContact"
       ></Button>
     </div>
     <div
@@ -39,6 +40,10 @@
 <script setup>
 import { defineProps, ref, onMounted, nextTick } from "vue";
 import Button from "primevue/button";
+
+const goToContact = () => {
+  router.push("/contact");
+};
 
 const props = defineProps({
   title: {
