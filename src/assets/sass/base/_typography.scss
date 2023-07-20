@@ -8,6 +8,7 @@
 
 * {
     font-family: map-get($map: $fonts, $key: secondary);
+    
 }
 
 h1 {
@@ -39,7 +40,7 @@ h3 {
     }
 
     font-family: map-get($map: $fonts, $key: secondary) !important;
-    font-size: 2rem;
+    font-size: 4rem;
     color: $secondaryLight !important;
 }
 

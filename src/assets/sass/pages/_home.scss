@@ -26,3 +26,47 @@
     width: 100%;
   }
 }
+
+/* Gradient para la img de las cards */////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.gradient-cards{
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(70%, rgba(0, 0, 0, 1)), color-stop(100%, rgba(0, 0, 0, 0)));
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)
+}
+
+/* Estilo cards*/
+.cards {
+  
+}
+
+/*Slider para un futuro*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.slider-frame ul {
+	display: flex;
+	padding: 0;
+	width: 400%;
+	animation: slide 15s infinite alternate ease-in-out;
+}
+
+.slider-frame li {
+	width: 100%;
+	list-style: none;
+}
+
+.slider-frame img {
+	width: 100%;
+}
+
+@keyframes slider {
+	0% {margin-left: 0;}
+	20% {margin-left: 0;}
+	
+	25% {margin-left: -100%;}
+	45% {margin-left: -100%;}
+	
+	50% {margin-left: -200%;}
+	70% {margin-left: -200%;}
+	
+	75% {margin-left: -300%;}
+	100% {margin-left: -300%;}
+}

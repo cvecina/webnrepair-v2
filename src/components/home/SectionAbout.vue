@@ -9,12 +9,12 @@
     </div>
     <div class="flex flex-wrap">
       <div class="w-full lg:w-6 xl:w-3 p-5">
-        <img src="/pc1.png" alt="Image" class="w-full imageAbout" />
+        <img src="/pc1.png" alt="Image" class="w-full imageAbout gradient-cards" />
         <div class="mt-3 mb-2 font-medium text-900 text-xl">
           Montaje a medida
         </div>
         <span class="text-700 line-height-3"
-          >Montaje de ordenadores de todo tipo a medida para el usuario.</span
+          >Montaje de ordenadores de todo tipo (Gaming, oficina, etc.) a medida para el usuario. Elaboramos prototipos adecuados a tu presupuesto y necesidades.</span
         >
         <a
           tabindex="0"
@@ -24,14 +24,18 @@
           <i class="pi pi-arrow-right ml-3"></i>
         </a>
       </div>
+
       <div class="w-full lg:w-6 xl:w-3 p-5">
-        <img src="/pc2.png" alt="Image" class="w-full imageAbout" />
+        <div>
+        <img src="/pc4.png" alt="Image" class="w-full imageAbout gradient-cards" />
+        </div>
         <div class="mt-3 mb-2 font-medium text-900 text-xl">
-          Formateo de ordenadores
+          Reparacion y mantenimiento de equipos 
         </div>
         <span class="text-700 line-height-3"
-          >Limpieza y formateo de ordenadores de sobremesa y portátiles.</span
-        >
+          >¿Tu pc o portátil no funciona o no tiene el rendimiento esperado? Realizamos reparaciones, modding y mantenimiento adecuados para
+           garantizar el óptimo funcionamiento de estos.
+        </span>
         <a
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
@@ -40,8 +44,11 @@
           <i class="pi pi-arrow-right ml-3"></i>
         </a>
       </div>
+      
       <div class="w-full lg:w-6 xl:w-3 p-5">
-        <img src="/pc3.png" alt="Image" class="w-full imageAbout" />
+        <div>
+          <img src="/pc3.png" alt="Image" class="w-full imageAbout gradient-cards"/>
+        </div> 
         <div class="mt-3 mb-2 font-medium text-900 text-xl">
           Diseño y desarrollo de aplicaciones web
         </div>
@@ -57,15 +64,15 @@
           <i class="pi pi-arrow-right ml-3"></i>
         </a>
       </div>
+
       <div class="w-full lg:w-6 xl:w-3 p-5">
-        <img src="/pc4.png" alt="Image" class="w-full imageAbout" />
+        <img src="/pc2.png" alt="Image" class="w-full imageAbout gradient-cards" />
         <div class="mt-3 mb-2 font-medium text-900 text-xl">
-          Mantenimiento de ordenadores
+          Formateo de ordenadores
         </div>
         <span class="text-700 line-height-3"
-          >Realizamos un mantenimiento adecuado para evitar problemas y fallos
-          inesperados, así como a mejorar el rendimiento general del equipo.
-        </span>
+          >Limpieza y formateo de ordenadores de sobremesa y portátiles.</span
+        >
         <a
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
@@ -74,6 +81,7 @@
           <i class="pi pi-arrow-right ml-3"></i>
         </a>
       </div>
+      
     </div>
   </div>
 </template>
