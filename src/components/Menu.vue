@@ -55,7 +55,7 @@ const menuItems = ref([
 ]);
 </script>
 <template>
-  <section class="h-full" style="background-color: #171717; !important">
+  <section class="h-full" style="ba ckground-color: #171717; !important">
     <div
       class="py-3 px-6 shadow-2 flex align-items-center justify-content-between relative"
     >

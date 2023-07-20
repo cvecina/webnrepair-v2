@@ -1,6 +1,6 @@
 <template>
   <SectionHome
-    title="¿Quienes sómos?"
+    title="¿Quiénes somos?"
     description="Somos un grupo de técnicos y desarrolladores apasionados por el Hardware, Diseño/Desarrollo Web y las nuevas tecnologías. WebnRepair nace
     con la finalidad de ofrecer nuestro conocimiento y experiencia en estas áreas a modo de servicio, ofreciendo soluciones innovadoras y de calidad.
 "
