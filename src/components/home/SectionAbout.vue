@@ -8,7 +8,7 @@
         para particulares y empresas.
     </div>
     <div class="flex flex-wrap">
-      <div class="w-full lg:w-6 xl:w-3 p-5">
+      <div class="w-full lg:w-6 xl:w-3 p-5 cards">
         <img src="/pc1.png" alt="Image" class="w-full imageAbout gradient-cards" />
         <div class="mt-3 mb-2 font-medium text-900 text-xl">
           Montaje a medida
@@ -22,10 +22,10 @@
         >
           <span>Explore</span>
           <i class="pi pi-arrow-right ml-3"></i>
-        </a>
+        </a>  
       </div>
 
-      <div class="w-full lg:w-6 xl:w-3 p-5">
+      <div class="w-full lg:w-6 xl:w-3 p-5 cards">
         <div>
         <img src="/pc4.png" alt="Image" class="w-full imageAbout gradient-cards" />
         </div>
@@ -45,7 +45,7 @@
         </a>
       </div>
       
-      <div class="w-full lg:w-6 xl:w-3 p-5">
+      <div class="w-full lg:w-6 xl:w-3 p-5 cards">
         <div>
           <img src="/pc3.png" alt="Image" class="w-full imageAbout gradient-cards"/>
         </div> 
@@ -65,7 +65,7 @@
         </a>
       </div>
 
-      <div class="w-full lg:w-6 xl:w-3 p-5">
+      <div class="w-full lg:w-6 xl:w-3 p-5 cards">
         <img src="/pc2.png" alt="Image" class="w-full imageAbout gradient-cards" />
         <div class="mt-3 mb-2 font-medium text-900 text-xl">
           Formateo de ordenadores
