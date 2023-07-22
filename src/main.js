@@ -19,6 +19,8 @@ import "primevue/resources/themes/lara-light-indigo/theme.css";
 import { nhost } from './nhostConfig'
 import { inicializarAxios } from "@/utils/inicializarAxios";
 import StyleClass from 'primevue/styleclass';
+import Particles from "vue3-particles";
+
 
 inicializarAxios();
 
@@ -37,6 +39,7 @@ app
     .use(PrimeVue)
     .use(nhost)
     .use(i18n)
+    .use(Particles)
     .use(ToastService)
     .use(ConfirmationService)
     .provide(DefaultApolloClient, apolloClient)
