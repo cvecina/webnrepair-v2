@@ -97,7 +97,7 @@ onMounted(() => {
 });
 
 const typewriter = () => {
-  let iSpeed = 20; // time delay of print out
+  let iSpeed = 10; // time delay of print out
   let iIndex = 0; // start printing array at this position
   let iArrLength = aText.value[0].length; // the length of the text array
   let iScrollAt = 20; // start scrolling up at this many lines
