@@ -17,13 +17,15 @@
       <div class="m-2" style="height: 250px !important">
         <p
           v-if="description && !visto"
-          class="line-height-3 mt-0 mb-7 p-0 text-white text-2xl"
+          class="line-height-3 mt-0 mb-7 p-0 text-white text-lg"
           ref="typedText"
         ></p>
-        <p  
-        v-if="description && visto"
-        class="line-height-3 mt-0 mb-7 p-0 text-white text-2xl"
-        >{{description}}</p>
+        <p
+          v-if="description && visto"
+          class="line-height-3 mt-0 mb-7 p-0 text-white text-lg"
+        >
+          {{ description }}
+        </p>
       </div>
       <Button
         v-if="button"
@@ -44,7 +46,7 @@
 <script setup>
 import { defineProps, ref, onMounted, nextTick } from "vue";
 import Button from "primevue/button";
-import { useRouter } from "vue-router"
+import { useRouter } from "vue-router";
 
 const router = useRouter();
 
@@ -83,20 +85,19 @@ const visto = ref(localStorage.getItem("visto"));
 
 onMounted(() => {
   if (!visto.value) {
-  
     if (props.description) {
       aText.value = [props.description];
       nextTick(() => {
         typewriter();
       });
-      
-      localStorage.setItem("visto",true)
-    } 
+
+      localStorage.setItem("visto", true);
+    }
   }
 });
 
 const typewriter = () => {
-  let iSpeed = 30; // time delay of print out
+  let iSpeed = 20; // time delay of print out
   let iIndex = 0; // start printing array at this position
   let iArrLength = aText.value[0].length; // the length of the text array
   let iScrollAt = 20; // start scrolling up at this many lines
