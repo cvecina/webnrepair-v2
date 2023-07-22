@@ -17,7 +17,7 @@
       <div class="m-2" style="height: 250px !important">
         <p
           v-if="description && !visto"
-          class="line-height-3 mt-0 mb-7 p-0 text-white text-lg lg:text-xl"
+          class="line-height-3 mt-0 mb-7 p-0 text-white text-lg lg:text-xl md:text-lg"
           ref="typedText"
         ></p>
         <p
