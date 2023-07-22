@@ -14,15 +14,18 @@
           Montaje a medida
         </div>
         <span class="text-700 line-height-3"
-          >Montaje de ordenadores de todo tipo (Gaming, oficina, etc.) a medida para el usuario. Elaboramos prototipos adecuados a tu presupuesto y necesidades.</span
+          >Montaje de ordenadores de todo tipo (Gaming, oficina, etc.) a medida para el usuario. Elaboramos prototipos adecuados a tu presupuesto y necesidades.
+          <br>
+          <br>
+          </span
         >
         <a
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
         >
-          <span>Explore</span>
-          <i class="pi pi-arrow-right ml-3"></i>
-        </a>  
+          <span>Me interesa</span>
+          
+        </a>
       </div>
 
       <div class="w-full lg:w-6 xl:w-3 p-5 cards">
@@ -35,13 +38,15 @@
         <span class="text-700 line-height-3"
           >¿Tu pc o portátil no funciona o no tiene el rendimiento esperado? Realizamos reparaciones, modding y mantenimiento adecuados para
            garantizar el óptimo funcionamiento de estos.
+           <br>
+           <br>
         </span>
         <a
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
         >
-          <span>Explore</span>
-          <i class="pi pi-arrow-right ml-3"></i>
+          <span>Me interesa</span>
+          
         </a>
       </div>
       
@@ -54,14 +59,18 @@
         </div>
         <span class="text-700 line-height-3"
           >Diseñamos tu web a medida o con un gestor de contenidos y la alojamos
-          en nuestros servidores.</span
+          en nuestros propios servidores.
+          <br>
+          <br>
+          <br>
+          </span
         >
         <a
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
         >
-          <span>Explore</span>
-          <i class="pi pi-arrow-right ml-3"></i>
+          <span>Me interesa</span>
+          
         </a>
       </div>
 
@@ -71,14 +80,16 @@
           Formateo de ordenadores
         </div>
         <span class="text-700 line-height-3"
-          >Limpieza y formateo de ordenadores de sobremesa y portátiles.</span
+          >Limpieza, formateo y optimización de ordenadores de sobremesa y portátiles. Plataformamiento de equipos, integración o cambio de Sistema Operativo. <br> <br>
+          
+          </span
         >
         <a
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
         >
-          <span>Explore</span>
-          <i class="pi pi-arrow-right ml-3"></i>
+          <span>Me interesa</span>
+          
         </a>
       </div>
       

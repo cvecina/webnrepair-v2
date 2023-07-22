@@ -149,7 +149,7 @@ const menuItems = ref([
             label="Contactar"
             icon="pi pi-chevron-right"
             iconPos="right"
-            class="p-button-rounded font-bold"
+            class="p-button-rounded font-bold btn-contact"
             @click="goToContact"
             style="background-color: #274bb6 !important; color: #fff; !important"
           ></Button>

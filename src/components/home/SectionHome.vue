@@ -30,7 +30,7 @@
       <Button
         v-if="button"
         :label="buttonLabel"
-        class="p-button-secondary text-2xl"
+        class="p-button-rounded text-2xl circle pulse blue"
         @click="goToContact"
       ></Button>
     </div>
