@@ -4,8 +4,14 @@
       <div class="col-12 md:col-6">
         <div class="p-fluid pr-0 md:pr-6">
           <div class="field">
-            <label for="name" class="font-medium">Name</label>
-            <InputText id="name" type="text" class="py-3 px-2 text-lg" />
+            <label for="name" class="font-medium">Tipo de consulta</label>
+        
+            <select name="tipo_consulta" id="" class="py-3 px-2 text-lg">
+              <option value="Montaje">Montaje a medida</option>
+              <option value="Reparacion">Reparacion y mantenimiento de equipos</option>
+              <option value="Diseño">Diseño y desarrollo de aplicaciones web</option>
+              <option value="Formateo">Formateo de ordenadores</option>
+            </select>
           </div>
           <div class="field">
             <label for="email" class="font-medium">Email</label>
@@ -25,7 +31,7 @@
             ></Textarea>
           </div>
           <Button
-            label="Send Message"
+            label="Enviar"
             icon="pi pi-send"
             class="w-auto"
           ></Button>
@@ -37,8 +43,7 @@
       >
         <div class="text-900 text-2xl font-medium mb-6">Contact Us</div>
         <div class="text-700 line-height-3 mb-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          O, si lo prefieres, puedes contactar con nosotros a través de Email, móvil o redes sociales:
         </div>
         <!-- <a
           class="inline-flex align-items-center text-blue-600 font-bold no-underline cursor-pointer"
@@ -51,13 +56,21 @@
             <i class="pi pi-phone mr-2"></i>
             <span>+123456789</span>
           </li>
+          <li class="flex align-items-center mb-3">
+            <i class="pi pi-whatsapp mr-2"></i>
+            <span>+123456789</span>
+          </li>
           <!-- <li class="flex align-items-center mb-3">
             <i class="pi pi-twitter mr-2"></i>
             <span>@prime_ng</span>
           </li> -->
-          <li class="flex align-items-center">
+          <li class="flex align-items-center mb-3">
             <i class="pi pi-inbox mr-2"></i>
-            <span>contact@primetek.com.tr</span>
+            <span>webnrepair@gmail.com</span>
+          </li>
+          <li class="flex align-items-center mb-3">
+            <i class="pi pi-instagram mr-2"></i>
+            <span>instagram.com/webnrepair/</span>
           </li>
         </ul>
       </div>
