@@ -7,8 +7,8 @@
         <a href="https://www.webnrepair.com" class="text-blue-500">WebnRepair</a>
     </p>
     <div class="flex align-items-center justify-content-center">
-      <a class="cursor-pointer text-700 mr-5">
-        <i class="pi pi-twitter"></i>
+      <a href="https://www.instagram.com/webnrepair/" class="cursor-pointer text-700 mr-5">
+        <i class="pi pi-instagram"></i>
       </a>
       <a class="cursor-pointer text-700 mr-5">
         <i class="pi pi-facebook"></i>

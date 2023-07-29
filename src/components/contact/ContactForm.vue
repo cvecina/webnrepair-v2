@@ -41,7 +41,7 @@
         class="col-12 md:col-6 bg-no-repeat bg-right-bottom"
         style="background-image: url('images/blocks/contact/contact-1.png')"
       >
-        <div class="text-900 text-2xl font-medium mb-6">O si lo prefieres:</div>
+        <div class="text-900 text-3xl font-medium mb-6">O si lo prefieres:</div>
         <div class="text-700 line-height-3 mb-6">
           Puedes contactar con nosotros a través de Email, móvil o redes sociales:
         </div>
