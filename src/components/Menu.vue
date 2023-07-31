@@ -55,7 +55,10 @@ const menuItems = ref([
 ]);
 </script>
 <template>
-  <section class="h-full" style="background-color: #171717; !important">
+  <section
+    class="h-full pruebaSticky"
+    style="background-color: #171717; !important"
+  >
     <div
       class="py-3 px-6 shadow-2 flex align-items-center justify-content-between relative"
     >
@@ -153,13 +156,27 @@ const menuItems = ref([
             @click="goToContact"
             style="background-color: #274bb6 !important; color: #fff; !important"
           ></Button>
-          <Button @click="handleSignOut" label="Cerrar sesión" v-if="isAuthenticated"></Button>
+          <Button
+            @click="handleSignOut"
+            label="Cerrar sesión"
+            v-if="isAuthenticated"
+          ></Button>
         </div>
       </nav>
     </div>
   </section>
 </template>
 <style>
+.pruebaSticky {
+  position: sticky;
+  top: 0;
+  background-color: #7d4242;
+  z-index: 1;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+  padding: 0 20px;
+  height: 60px;
+  width: 100%;
+}
 </style>
 <!-- <template #end>
   <div class="flex justify-content-center align-items-center">
