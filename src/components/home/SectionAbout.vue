@@ -23,7 +23,7 @@
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
         >
-          <span>Me interesa</span>
+          <Button @click="contactFromAbout('build')">Me interesa</Button>
           
         </a>
       </div>
@@ -45,7 +45,7 @@
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
         >
-          <span>Me interesa</span>
+          <Button @click="contactFromAbout('repair')">Me interesa</Button>
           
         </a>
       </div>
@@ -69,7 +69,7 @@
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
         >
-          <span>Me interesa</span>
+          <Button @click="contactFromAbout('design')">Me interesa</Button>
           
         </a>
       </div>
@@ -88,7 +88,7 @@
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
         >
-          <span>Me interesa</span>
+          <Button @click="contactFromAbout('format')">Me interesa</Button>
           
         </a>
       </div>
@@ -96,7 +96,19 @@
     </div>
   </div>
 </template>
+<script setup>
+import Button from 'primevue/button'
+import { useRouter } from 'vue-router'
+import { useContactStore } from '@/stores';
+const router = useRouter();
+const contactStore = useContactStore();
+const contactFromAbout = async (service) => {
+  await contactStore.setAbout(service)
+  router.push('/contact')
+}
 
+
+</script>
 <style>
 /* the imageAbout class has border radius and bottom gradient and all the same width and height */
 

@@ -25,6 +25,6 @@ watch(
 </script>
 
 <template>
-  <Toast position="center"></Toast>
+  <Toast></Toast>
 
 </template>
