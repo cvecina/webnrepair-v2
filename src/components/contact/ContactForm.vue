@@ -65,7 +65,7 @@
           <Button
             label="Enviar"
             icon="pi pi-send"
-            class="w-auto"
+            class="w-auto mb-4"
             @click="sendMail"
           ></Button>
         </div>

@@ -25,8 +25,8 @@ const handleSignOut = async () => {
 
 const menuItems = ref([
   {
-    id: 1,
-    title: Home.value,
+    //id: 1,
+    //title: Home.value,
     // subItems: [
     // {
     //   id: 1,

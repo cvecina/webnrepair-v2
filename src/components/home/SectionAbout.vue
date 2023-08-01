@@ -23,7 +23,7 @@
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
         >
-          <Button @click="contactFromAbout('build')">Me interesa</Button>
+          <Button class="pulse" @click="contactFromAbout('build')">Me interesa</Button>
           
         </a>
       </div>
@@ -45,7 +45,7 @@
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
         >
-          <Button @click="contactFromAbout('repair')">Me interesa</Button>
+          <Button class="pulse" @click="contactFromAbout('repair')">Me interesa</Button>
           
         </a>
       </div>
@@ -69,7 +69,7 @@
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
         >
-          <Button @click="contactFromAbout('design')">Me interesa</Button>
+          <Button class="pulse" @click="contactFromAbout('design')">Me interesa</Button>
           
         </a>
       </div>
@@ -88,7 +88,7 @@
           tabindex="0"
           class="text-blue-500 font-medium flex align-items-center mt-2"
         >
-          <Button @click="contactFromAbout('format')">Me interesa</Button>
+          <Button class="pulse" @click="contactFromAbout('format')">Me interesa</Button>
           
         </a>
       </div>
