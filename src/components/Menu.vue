@@ -170,7 +170,6 @@ const menuItems = ref([
 .pruebaSticky {
   position: sticky;
   top: 0;
-  background-color: #7d4242;
   z-index: 1;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
   padding: 0 20px;
