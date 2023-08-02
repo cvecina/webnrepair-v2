@@ -17,6 +17,11 @@ import { useOpinionesStore } from "@/stores";
 import { ref, computed, watch, onMounted } from "vue";
 import gql from "graphql-tag";
 import { useSubscription } from "@vue/apollo-composable";
+import { useTitle } from '@vueuse/core'
+
+const title = useTitle()
+
+title.value = "Inicio - Web & Repair"
 
 const opinionesStore = useOpinionesStore();
 
