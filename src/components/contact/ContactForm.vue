@@ -119,7 +119,7 @@ import Dropdown from "primevue/dropdown";
 import Button from "primevue/button";
 import { useRouter } from "vue-router";
 import { useContactStore, useAlertStore } from "@/stores";
-
+import { onMounted } from "vue";
 const router = useRouter();
 const contactStore = useContactStore();
 const alertStore = useAlertStore();
@@ -135,4 +135,8 @@ const sendMail = async () => {
   };
   router.push("/");
 };
+
+onMounted(async() => {
+  await contactStore.hello();
+})
 </script>

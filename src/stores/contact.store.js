@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { useAlertStore } from "./alert.store";
+import axios from "axios";
 
 export const useContactStore = defineStore({
     id: "contact",
@@ -24,6 +25,17 @@ export const useContactStore = defineStore({
 
         async setAbout(about) {
             this.new.tipo = about;
+        },
+
+        async hello(){
+            await axios.get("/activitylist/"
+            ).then((response) => {
+                console.log("response", response);
+            }).catch((error) => {
+                console.log("error", error);
+            }
+            );
+
         },
     },
 });
