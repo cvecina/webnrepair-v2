@@ -25,3 +25,6 @@ from './reviews/Reviews.vue';
 
 export { default as Footer}
 from './Footer.vue';
+
+export { default as GestionPedidos}
+from './admin/GestionPedidos.vue';
