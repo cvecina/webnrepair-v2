@@ -26,7 +26,7 @@
             />
           </div>
           <div class="field">
-            <label for="name" class="font-medium">Name</label>
+            <label for="name" class="font-medium">Nombre</label>
             <InputText
               id="name"
               type="text"
@@ -35,7 +35,7 @@
             />
           </div>
           <div class="field">
-            <label for="email" class="font-medium">Email</label>
+            <label for="email" class="font-medium">Correo electrónico</label>
             <InputText
               id="email"
               type="text"
@@ -53,7 +53,7 @@
             />
           </div>
           <div class="field">
-            <label for="message" class="font-medium">Message</label>
+            <label for="message" class="font-medium">Mensaje</label>
             <Textarea
               id="message"
               :rows="6"
@@ -86,25 +86,25 @@
           <i class="pi pi-arrow-right"></i>
         </a> -->
         <ul class="list-none p-0 m-0 mt-6 text-700">
-          <li class="flex align-items-center mb-4">
+          <!-- <li class="flex align-items-center mb-4">
             <i class="pi pi-phone mr-3" style="font-size: 2rem"></i>
             <span>+123456789</span>
           </li>
           <li class="flex align-items-center mb-4">
             <i class="pi pi-whatsapp mr-3" style="font-size: 2rem"></i>
             <span>+123456789</span>
-          </li>
+          </li> -->
           <!-- <li class="flex align-items-center mb-3">
             <i class="pi pi-twitter mr-3"></i>
             <span>@prime_ng</span>
           </li> -->
           <li class="flex align-items-center mb-4">
             <i class="pi pi-inbox mr-3" style="font-size: 2rem"></i>
-            <span>webnrepair@gmail.com</span>
+            <span>webnrepair1@gmail.com</span>
           </li>
           <li class="flex align-items-center mb-3">
             <i class="pi pi-instagram mr-3" style="font-size: 2rem"></i>
-            <span>instagram.com/webnrepair/</span>
+            <span><a class="text-700" href="https://instagram.com/webnrepair/">instagram.com/webnrepair/</a></span>
           </li>
         </ul>
       </div>

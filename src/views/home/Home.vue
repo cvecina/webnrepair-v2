@@ -9,7 +9,7 @@
     buttonLabel="Contacta con nosotros"
   />
   <SectionAbout></SectionAbout>
-  <Reviews :reviews="opinionesStore.opiniones"></Reviews>
+  <!-- <Reviews :reviews="opinionesStore.opiniones"></Reviews> --> <!-- Comentado checkear!!!! -->
 </template>
 <script setup lang="ts">
 import { SectionHome, SectionAbout, Reviews } from "@/components";
