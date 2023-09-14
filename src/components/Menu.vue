@@ -15,6 +15,10 @@ const goToContact = () => {
   router.push("/contact");
 };
 
+const goToAdmin = () => {
+  router.push("/admin");
+};
+
 const isAuthenticated = useAuthenticated();
 const { signOut } = useSignOut();
 
@@ -148,15 +152,23 @@ const menuItems = ref([
           class="flex justify-content-between lg:block border-top-1 lg:border-top-none py-3 lg:py-0 mt-3 lg:mt-0"
           style="border-color: rgba(222, 226, 230, 0.15)"
         >
+        <Button
+            @click="goToAdmin"
+            label="Admin"
+            class="m-2"
+            v-if="isAuthenticated"
+          ></Button>
           <Button
             label="Contactar"
             icon="pi pi-chevron-right"
             iconPos="right"
             class="p-button-rounded font-bold btn-contact"
             @click="goToContact"
+            v-if="!isAuthenticated"
             style="background-color: #274bb6 !important; color: #fff; !important"
           ></Button>
           <Button
+          class="m-2"
             @click="handleSignOut"
             label="Cerrar sesión"
             v-if="isAuthenticated"
