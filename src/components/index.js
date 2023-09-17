@@ -28,3 +28,9 @@ from './Footer.vue';
 
 export { default as GestionPedidos}
 from './admin/GestionPedidos.vue';
+
+export { default as GestionRatings}
+from './admin/GestionRatings.vue';
+
+export { default as GestionIncidencias}
+from './admin/GestionIncidencias.vue';
