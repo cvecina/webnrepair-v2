@@ -76,7 +76,7 @@ export default {
               :is="data.tipo"
               v-model="datosEditar[data.campo]"
               :style="data.style ? data.style : 'width: 25em'"
-              class="m-2"
+              :class="data.class"
               :options="data.options"
               :optionLabel="optionLabel"
               touchUI="true"
