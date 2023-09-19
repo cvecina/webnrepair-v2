@@ -1,20 +1,23 @@
 <script setup>
-import { ref, watch, onMounted } from "vue";
+import { ref, watch, onMounted, computed } from "vue";
 import {
   DataTableRepository,
   FormularioRepository,
 } from "@/componentsFromRepository";
 import Dialog from "primevue/dialog";
 import { usePedidosStore } from "@/stores";
+import gql from "graphql-tag";
+import { useSubscription } from "@vue/apollo-composable";
+import Pedidos from "@/limits/Pedidos";
 
 const listaPedidos = ref([]);
 const pedidosStore = usePedidosStore();
 const camposTabla = ref([
-  { campo: "fecha", label: "Fecha" },
-  { campo: "cliente", label: "Cliente" },
-  { campo: "estado", label: "Estado" },
-  { campo: "precio", label: "Precio" },
+  // { campo: "fecha", label: "Fecha" },
+  { campo: "categoria", label: "Categoria" },
   { campo: "descripcion", label: "Descripción" },
+  { campo: "precio", label: "Precio" },
+  { campo: "titulo", label: "Título" },
 ]);
 
 const buttonsDataTable = ref([
@@ -47,88 +50,6 @@ const create = () => {
 
 onMounted(async () => {
   // make a fake list of pedidos
-  listaPedidos.value = [
-    {
-      id: 1,
-      fecha: "2021-10-01",
-      cliente: "Juan",
-      estado: "pendiente",
-      precio: 100,
-      descripcion: "Reparar pantalla",
-    },
-    {
-      id: 2,
-      fecha: "2021-10-02",
-      cliente: "Pedro",
-      estado: "pendiente",
-      precio: 200,
-      descripcion: "Reparar pantalla",
-    },
-    {
-      id: 3,
-      fecha: "2021-10-03",
-      cliente: "Maria",
-      estado: "pendiente",
-      precio: 300,
-      descripcion: "Reparar pantalla",
-    },
-    {
-      id: 4,
-      fecha: "2021-10-04",
-      cliente: "Ana",
-      estado: "pendiente",
-      precio: 400,
-      descripcion: "Reparar pantalla",
-    },
-    {
-      id: 5,
-      fecha: "2021-10-05",
-      cliente: "Luis",
-      estado: "pendiente",
-      precio: 500,
-      descripcion: "Reparar pantalla",
-    },
-    {
-      id: 6,
-      fecha: "2021-10-06",
-      cliente: "Juan",
-      estado: "pendiente",
-      precio: 600,
-      descripcion: "Reparar pantalla",
-    },
-    {
-      id: 7,
-      fecha: "2021-10-07",
-      cliente: "Pedro",
-      estado: "pendiente",
-      precio: 700,
-      descripcion: "Reparar pantalla",
-    },
-    {
-      id: 8,
-      fecha: "2021-10-08",
-      cliente: "Maria",
-      estado: "pendiente",
-      precio: 800,
-      descripcion: "Reparar pantalla",
-    },
-    {
-      id: 9,
-      fecha: "2021-10-09",
-      cliente: "Ana",
-      estado: "pendiente",
-      precio: 900,
-      descripcion: "Reparar pantalla",
-    },
-    {
-      id: 10,
-      fecha: "2021-10-10",
-      cliente: "Luis",
-      estado: "pendiente",
-      precio: 1000,
-      descripcion: "Reparar pantalla",
-    },
-  ];
 });
 
 const showForm = ref(false);
@@ -136,14 +57,14 @@ const showForm = ref(false);
 const tipo = ref("");
 
 const camposForm = ref([
-  {
-    campo: "fecha",
-    tipo: "Calendar",
-    label: "Fecha del pedido",
-    type: "date",
-  },
-  { campo: "cliente", tipo: "InputText", label: "Cliente", type: "text" },
-  { campo: "estado", tipo: "InputText", label: "Estado", type: "text" },
+  // {
+  //   campo: "fecha",
+  //   tipo: "Calendar",
+  //   label: "Fecha del pedido",
+  //   type: "date",
+  // },
+  { campo: "categoria", tipo: "InputText", label: "Categoria", type: "text" },
+  // { campo: "estado", tipo: "InputText", label: "Estado", type: "text" },
   { campo: "precio", tipo: "InputNumber", label: "Precio", type: "number" },
   {
     campo: "descripcion",
@@ -151,19 +72,41 @@ const camposForm = ref([
     label: "Descripción",
     type: "text",
   },
+  { campo: "titulo", tipo: "InputText", label: "Titulo", type: "text" },
 ]);
 
 const buttonsForm = ref([
   { class: "m-2", click: "save", label: "Guardar" },
   { class: "m-2", click: "cancel", label: "Cancelar" },
 ]);
+
+const saveCreate = async (data) => {
+  console.error("saveCreate", data);
+  await pedidosStore.saveCreate(data);
+};
+
+let subscription = gql(Pedidos().querys.principal);
+
+const { result } = useSubscription(subscription);
+const getPedidos = computed(() => {
+  if (result.value) {
+    pedidosStore.setStore(result.value.pedidos);
+  }
+  return result.value;
+});
+
+onMounted(async () => {
+  watch(getPedidos, () => {
+    // dataBoats.value = newValue.boats;
+  });
+});
 </script>
 <template>
   <DataTableRepository
     title="Pedidos"
     :showCreate="true"
     :camposTabla="camposTabla"
-    :data="listaPedidos"
+    :data="pedidosStore.dataFiltrados"
     :buttons="buttonsDataTable"
     @edit="edit"
     @remove="remove"

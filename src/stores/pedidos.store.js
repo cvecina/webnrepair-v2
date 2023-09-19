@@ -20,18 +20,12 @@ export const usePedidosStore = defineStore({
         },
 
         async setParseados() {
-            let datosMapeados = this.data.map((boat) => {
+            let datosMapeados = this.data.map((pedidos) => {
                 return {
-                    id: boat.id,
-                    description: boat.description,
-                    price: boat.price,
-                    location: boat.location,
-                    size: boat.size,
-                    fuel: boat.fuel,
-                    cabins: boat.cabins,
-                    bathrooms: boat.bathrooms,
-                    passengers: boat.passengers,
-                    boatName: boat.boatName,
+                       categoria: pedidos.categoria,
+                        descripcion: pedidos.descripcion,
+                        precio: pedidos.precio,
+                        titulo: pedidos.titulo
                 };
             });
             this.dataParseados = datosMapeados;
@@ -134,27 +128,17 @@ export const usePedidosStore = defineStore({
             try {
                 await apolloClient.mutate({
                     mutation: gql`
-                    mutation MyMutation($id: uuid!, $descripcion: String, $precio: numeric, $ubicacion: String, $tamanio: numeric, $combustible: String, $camarotes: Int, $banos: Int, $pasajeros: Int, $nombre: String, $idRelation: uuid!) {
-                        insert_boats_one(object: {id: $id, description: $descripcion, price: $precio, location: $ubicacion, size: $tamanio, fuel: $combustible, cabins: $camarotes, bathrooms: $banos, passengers: $pasajeros, boatName: $nombre}) {
-                            id
-                        }
-                        insert_user_boat_one(object: {id_boat: $id, id: $idRelation}) {
-                                id
+                        mutation MyMutation ($categoria: String!, $descripcion: String!, $precio: numeric!, $titulo: String!){
+                            insert_pedidos_one(object: {categoria: $categoria, descripcion:$descripcion, precio: $precio, titulo: $titulo}) {
+                                categoria
                             }
-                    }
+                        }
                     `,
                     variables: {
-                        id: this.uuidGenerator(),
-                        descripcion: this.new.description,
-                        precio: this.new.price,
-                        ubicacion: this.new.location,
-                        tamanio: this.new.size,
-                        combustible: this.new.fuel,
-                        camarotes: this.new.cabins,
-                        banos: this.new.bathrooms,
-                        pasajeros: this.new.passengers,
-                        nombre: this.new.boatName,
-                        idRelation: this.uuidGenerator(),
+                        categoria: this.new.categoria,
+                        descripcion: this.new.descripcion,
+                        precio: this.new.precio,
+                        titulo: this.new.titulo
                     }
                 });
                 alertStore.success("Pedido añadido correctamente");
