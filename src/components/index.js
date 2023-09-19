@@ -34,3 +34,6 @@ from './admin/GestionRatings.vue';
 
 export { default as GestionIncidencias}
 from './admin/GestionIncidencias.vue';
+
+export { default as Clientes}
+from './admin/Clientes.vue';

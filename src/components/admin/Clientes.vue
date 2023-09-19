@@ -5,19 +5,17 @@ import {
   FormularioRepository,
 } from "@/componentsFromRepository";
 import Dialog from "primevue/dialog";
-import { usePedidosStore } from "@/stores";
+import { useClientesStore } from "@/stores";
 import gql from "graphql-tag";
 import { useSubscription } from "@vue/apollo-composable";
-import Pedidos from "@/limits/Pedidos";
+import Clientes from "@/limits/Clientes";
 
-const listaPedidos = ref([]);
-const pedidosStore = usePedidosStore();
+const listaClientes = ref([]);
+const clientesStore = useClientesStore();
 const camposTabla = ref([
   // { campo: "fecha", label: "Fecha" },
-  { campo: "titulo", label: "Título" },
-  { campo: "descripcion", label: "Descripción" },
-  { campo: "precio", label: "Precio" },
-  { campo: "categoria", label: "Categoria" },
+  { campo: "nombre", label: "Nombre" },
+  { campo: "contacto", label: "contacto" },
 ]);
 
 const buttonsDataTable = ref([
@@ -36,7 +34,7 @@ const buttonsDataTable = ref([
 const edit = (data) => {
   tipo.value = "editar";
   showForm.value = true;
-  pedidosStore.selected = data;
+  clientesStore.selected = data;
 };
 
 const remove = (data) => {
@@ -49,7 +47,7 @@ const create = () => {
 };
 
 onMounted(async () => {
-  // make a fake list of pedidos
+  // make a fake list of clientes
 });
 
 const showForm = ref(false);
@@ -57,22 +55,9 @@ const showForm = ref(false);
 const tipo = ref("");
 
 const camposForm = ref([
-  // {
-  //   campo: "fecha",
-  //   tipo: "Calendar",
-  //   label: "Fecha del pedido",
-  //   type: "date",
-  // },
-  { campo: "categoria", tipo: "InputText", label: "Categoria", type: "text" },
-  // { campo: "estado", tipo: "InputText", label: "Estado", type: "text" },
-  { campo: "precio", tipo: "InputNumber", label: "Precio", type: "number" },
-  {
-    campo: "descripcion",
-    tipo: "Textarea",
-    label: "Descripción",
-    type: "text",
-  },
-  { campo: "titulo", tipo: "InputText", label: "Titulo", type: "text" },
+  { campo: "nombre", tipo: "InputText", label: "Nombre", type: "text" },
+  {campo: "tel", tipo: "InputText", label: "Tel", type: "text"},
+  {campo: "email", tipo: "InputText", label: "Email", type: "text"},
 ]);
 
 const buttonsForm = ref([
@@ -82,40 +67,40 @@ const buttonsForm = ref([
 
 const saveCreate = async (data) => {
   console.error("saveCreate", data);
-  await pedidosStore.saveCreate(data);
+  await clientesStore.saveCreate(data);
   showForm.value = false;
-  pedidosStore.new = {};
+  clientesStore.new = {};
 };
 
 const saveEdit = async (data) => {
   console.error("saveEdit", data);
-  await pedidosStore.saveEdit(data);
+  await clientesStore.saveEdit(data);
   showForm.value = false;
-  pedidosStore.selected = {};
+  clientesStore.selected = {};
 };
 
-let subscription = gql(Pedidos().querys.principal);
+let subscription = gql(Clientes().querys.principal);
 
 const { result } = useSubscription(subscription);
-const getPedidos = computed(() => {
+const getClientes = computed(() => {
   if (result.value) {
-    pedidosStore.setStore(result.value.pedidos);
+    clientesStore.setStore(result.value.clientes);
   }
   return result.value;
 });
 
 onMounted(async () => {
-  watch(getPedidos, () => {
+  watch(getClientes, () => {
     // dataBoats.value = newValue.boats;
   });
 });
 </script>
 <template>
   <DataTableRepository
-    title="Pedidos"
+    title="Clientes"
     :showCreate="true"
     :camposTabla="camposTabla"
-    :data="pedidosStore.dataFiltrados"
+    :data="clientesStore.dataFiltrados"
     :buttons="buttonsDataTable"
     @edit="edit"
     @remove="remove"
@@ -124,26 +109,26 @@ onMounted(async () => {
   <Dialog v-model:visible="showForm" modal class="flex p-2 align-center">
     <FormularioRepository
       v-if="tipo === 'crear'"
-      title="Crear pedido"
+      title="Crear cliente"
       :listaDeFormulario="camposForm"
       :buttons="buttonsForm"
-      :datosEditar="pedidosStore.new"
+      :datosEditar="clientesStore.new"
       @save="saveCreate"
       @cancel="
         showForm = false;
-        pedidosStore.new = {};
+        clientesStore.new = {};
       "
     ></FormularioRepository>
     <FormularioRepository
       v-if="tipo === 'editar'"
-      title="Editar pedido"
+      title="Editar cliente"
       :listaDeFormulario="camposForm"
       :buttons="buttonsForm"
-      :datosEditar="pedidosStore.selected"
+      :datosEditar="clientesStore.selected"
       @save="saveEdit"
       @cancel="
         showForm = false;
-        pedidosStore.selected = {};
+        clientesStore.selected = {};
       "
     ></FormularioRepository>
   </Dialog>

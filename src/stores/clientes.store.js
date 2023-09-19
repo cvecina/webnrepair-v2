@@ -3,8 +3,8 @@ import { useAlertStore } from "@/stores";
 import apolloClient from "@/main.js";
 import { gql } from '@apollo/client/core'
 
-export const usePedidosStore = defineStore({
-    id: "pedidos",
+export const useClientesStore = defineStore({
+    id: "clientes",
     state: () => ({
         data: [],
         selected: {},
@@ -20,13 +20,11 @@ export const usePedidosStore = defineStore({
         },
 
         async setParseados() {
-            let datosMapeados = this.data.map((pedidos) => {
+            let datosMapeados = this.data.map((clientes) => {
                 return {
-                    id: pedidos.id,
-                    categoria: pedidos.categoria,
-                    descripcion: pedidos.descripcion,
-                    precio: pedidos.precio,
-                    titulo: pedidos.titulo
+                    id: clientes.id,
+                    contacto: clientes?.email + " - " + clientes?.tel,
+                    nombre: clientes.nombre,
                 };
             });
             this.dataParseados = datosMapeados;
@@ -97,18 +95,17 @@ export const usePedidosStore = defineStore({
             try {
                 await apolloClient.mutate({
                     mutation: gql`
-                    mutation MyMutation($id: Int!, $descripcion: String, $precio: numeric, $titulo: String, $categoria: String) {
-                        update_pedidos_by_pk(pk_columns: {id: $id}, _set: {categoria: $categoria, descripcion: $descripcion, titulo: $titulo, precio: $precio}) {
-                            categoria
+                    mutation MyMutation($id: uuid!, $email: String, $nombre: String!, $tel: String) {
+                        update_clientes_by_pk(pk_columns: {id: $id}, _set: {email: $email, nombre: $nombre, tel: $tel}) {
+                            email
                         }
                     }
                     `,
                     variables: {
                         id: this.selected.id,
-                        categoria: this.selected.categoria,
-                        descripcion: this.selected.descripcion,
-                        precio: this.selected.precio,
-                        titulo: this.selected.titulo
+                        email: this.selected.email,
+                        nombre: this.selected.nombre,
+                        tel: this.selected.tel,
                     }
                 });
 
@@ -124,22 +121,21 @@ export const usePedidosStore = defineStore({
             try {
                 await apolloClient.mutate({
                     mutation: gql`
-                        mutation MyMutation ($categoria: String!, $descripcion: String!, $precio: numeric!, $titulo: String!){
-                            insert_pedidos_one(object: {categoria: $categoria, descripcion:$descripcion, precio: $precio, titulo: $titulo}) {
-                                categoria
+                        mutation MyMutation ($email: String!, $nombre: String!, $tel: String!){
+                            insert_clientes_one(object: {email: $email, nombre: $nombre, tel: $tel}) {
+                                id
                             }
                         }
                     `,
                     variables: {
-                        categoria: this.new.categoria,
-                        descripcion: this.new.descripcion,
-                        precio: this.new.precio,
-                        titulo: this.new.titulo
+                        email: this.new.email,
+                        nombre: this.new.nombre,
+                        tel: this.new.tel,
                     }
                 });
-                alertStore.success("Pedido añadido correctamente");
+                alertStore.success("Cliente añadido correctamente");
             } catch (error) {
-                alertStore.error("Error creando el pedido");
+                alertStore.error("Error creando el cliente");
                 console.error("Error getting documents: ", error);
             }
         },
