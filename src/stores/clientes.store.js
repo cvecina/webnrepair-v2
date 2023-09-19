@@ -8,10 +8,21 @@ export const useClientesStore = defineStore({
     state: () => ({
         data: [],
         selected: {},
-        new: {},
+        new: {tel: "-", email: "-", nombre: "-"},
         dataParseados: [],
         dataFiltrados: [],
     }),
+
+    getters: {
+        clientesForDropdown() {
+            return this.dataParseados.map((cliente) => {
+                return {
+                    label: cliente.nombre,
+                    value: cliente.id,
+                };
+            });
+        }
+    },
     actions: {
 
         async setStore(data) {

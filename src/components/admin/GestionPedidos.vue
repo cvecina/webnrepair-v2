@@ -5,18 +5,20 @@ import {
   FormularioRepository,
 } from "@/componentsFromRepository";
 import Dialog from "primevue/dialog";
-import { usePedidosStore } from "@/stores";
+import { usePedidosStore, useClientesStore } from "@/stores";
 import gql from "graphql-tag";
 import { useSubscription } from "@vue/apollo-composable";
 import Pedidos from "@/limits/Pedidos";
 
 const pedidosStore = usePedidosStore();
+const clientesStore = useClientesStore();
 const camposTabla = ref([
   // { campo: "fecha", label: "Fecha" },
   { campo: "titulo", label: "Título" },
   { campo: "descripcion", label: "Descripción" },
   { campo: "precio", label: "Precio" },
   { campo: "categoria", label: "Categoria" },
+  { campo: "cliente", label: "Cliente" },
 ]);
 
 const buttonsDataTable = ref([
@@ -55,6 +57,20 @@ const showForm = ref(false);
 
 const tipo = ref("");
 
+let clientesSubscription = gql(Pedidos().querys.getClientes);
+
+const { result: clientesResult } = useSubscription(clientesSubscription);
+const getClientes = computed(() => {
+  if (clientesResult.value) {
+    clientesStore.setStore(clientesResult.value.clientes);
+  }
+  return clientesResult.value;
+});
+const clientes = ref([{ label: "hola", value: "hola" }]);
+// watch(clientesStore.clientesForDropdown, (newValue) => {
+//   clientes.value = newValue;
+// });
+
 const camposForm = ref([
   // {
   //   campo: "fecha",
@@ -63,6 +79,16 @@ const camposForm = ref([
   //   type: "date",
   // },
   { campo: "categoria", tipo: "InputText", label: "Categoria", type: "text" },
+
+  {
+    campo: "cliente",
+    tipo: "Dropdown",
+    labelExt: "Cliente",
+    type: "text",
+    options: clientes,
+    // options: clientesStore.clientesForDropdown,
+  },
+
   // { campo: "estado", tipo: "InputText", label: "Estado", type: "text" },
   { campo: "precio", tipo: "InputNumber", label: "Precio", type: "number" },
   {
@@ -104,6 +130,9 @@ const getPedidos = computed(() => {
 });
 
 onMounted(async () => {
+  watch(getClientes, () => {
+    // dataBoats.value = newValue.boats;
+  });
   watch(getPedidos, () => {
     // dataBoats.value = newValue.boats;
   });
@@ -121,6 +150,7 @@ onMounted(async () => {
     @create="create"
   ></DataTableRepository>
   <Dialog v-model:visible="showForm" modal class="flex p-2 align-center">
+    {{ clientesStore.clientesForDropdown }}
     <FormularioRepository
       v-if="tipo === 'crear'"
       title="Crear pedido"

@@ -171,14 +171,13 @@ export default function limits() {
               
           `,
 
-            aggregateBookings: `
-          subscription MySubscription {
-            bookings_aggregate {
-              aggregate {
-                count
-              }
-            }
-          }`
+            getClientes: `
+            subscription MySubscription {
+                clientes {
+                  nombre
+                  id
+                }
+              }`
 
         },
     };
