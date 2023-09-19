@@ -65,6 +65,11 @@ export const useClientesStore = defineStore({
         async select(seleccion) {
             const datos = { ...seleccion };
             this.selected = datos;
+            let contactoSplit = this.selected.contacto.split(" - ");
+            let newEmail = contactoSplit[0];
+            let newTel = contactoSplit[1];
+            this.selected.email = newEmail;
+            this.selected.tel = newTel;
         },
 
         // async selectById(id) {
@@ -92,6 +97,9 @@ export const useClientesStore = defineStore({
         async saveEdit() {
             const alertStore = useAlertStore();
             console.error(this.selected)
+            // split contacto on -
+            // this.selected?.email = contactoSplit[0];
+            // this.selected?.tel = contactoSplit[1];
             try {
                 await apolloClient.mutate({
                     mutation: gql`
@@ -109,8 +117,10 @@ export const useClientesStore = defineStore({
                     }
                 });
 
-                alertStore.success("Barco actualizado correctamente");
+                alertStore.success("Cliente actualizado correctamente");
             } catch (error) {
+                alertStore.success("Error actualizando el cliente");
+
                 console.error("Error getting documents: ", error);
 
             }

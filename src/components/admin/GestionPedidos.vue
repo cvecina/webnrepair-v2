@@ -10,7 +10,6 @@ import gql from "graphql-tag";
 import { useSubscription } from "@vue/apollo-composable";
 import Pedidos from "@/limits/Pedidos";
 
-const listaPedidos = ref([]);
 const pedidosStore = usePedidosStore();
 const camposTabla = ref([
   // { campo: "fecha", label: "Fecha" },

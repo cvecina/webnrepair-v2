@@ -35,6 +35,11 @@ const edit = (data) => {
   tipo.value = "editar";
   showForm.value = true;
   clientesStore.selected = data;
+  let contactoSplit = clientesStore.selected.contacto.split(" - ");
+  let newEmail = contactoSplit[0];
+  let newTel = contactoSplit[1];
+  clientesStore.selected.email = newEmail;
+  clientesStore.selected.tel = newTel;
 };
 
 const remove = (data) => {
@@ -56,8 +61,8 @@ const tipo = ref("");
 
 const camposForm = ref([
   { campo: "nombre", tipo: "InputText", label: "Nombre", type: "text" },
-  {campo: "tel", tipo: "InputText", label: "Tel", type: "text"},
-  {campo: "email", tipo: "InputText", label: "Email", type: "text"},
+  { campo: "tel", tipo: "InputText", label: "Tel", type: "text" },
+  { campo: "email", tipo: "InputText", label: "Email", type: "text" },
 ]);
 
 const buttonsForm = ref([
