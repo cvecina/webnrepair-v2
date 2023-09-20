@@ -8,7 +8,8 @@ export const router = createRouter({
     scrollBehavior(to, from, savedPosition) {
         return { top: 0 }
     },
-    history: createWebHistory('.'),
+    history: createWebHashHistory('.'),
+    // history: createWebHistory('.'),
     linkActiveClass: "active",
     routes: [
         { ...homeRoutes },
