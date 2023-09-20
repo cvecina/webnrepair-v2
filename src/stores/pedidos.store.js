@@ -107,7 +107,7 @@ export const usePedidosStore = defineStore({
                     `,
                     variables: {
                         id: this.selected.id,
-                        id_cliente: this.selected.id_cliente,
+                        id_cliente: this.selected.cliente,
                         categoria: this.selected.categoria,
                         descripcion: this.selected.descripcion,
                         precio: this.selected.precio,
@@ -115,7 +115,7 @@ export const usePedidosStore = defineStore({
                     }
                 });
 
-                alertStore.success("Barco actualizado correctamente");
+                alertStore.success("Pedido actualizado correctamente");
             } catch (error) {
                 console.error("Error getting documents: ", error);
 
