@@ -31,9 +31,8 @@ export default {
 <template>
   <!-- eslint-disable -->
 
-  <Card
-    style="max-width: 35em; background: rgb(232, 249, 250); margin-top: 5px"
-  >
+  <Card>
+    <!-- style="max-width: 35em; background: rgb(232, 249, 250); margin-top: 5px" -->
     <template #header>
       <div
         v-if="showTitle"
@@ -44,7 +43,7 @@ export default {
           padding-right: 15px;
         "
       >
-        <h1 style="flex-grow: 1">{{ title }}</h1>
+        <h1>{{ title }}</h1>
       </div>
       <div
         v-if="showSubtitle"

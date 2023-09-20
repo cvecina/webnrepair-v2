@@ -24,7 +24,7 @@ const edit = (data) => {
   tipo.value = "editar";
   showForm.value = true;
   pedidosStore.selected = data;
-  // pedidosStore.selected.cliente = data.cliente.id;
+  pedidosStore.selected.cliente = pedidosStore.selected.id_cliente;
 };
 
 const remove = (data) => {

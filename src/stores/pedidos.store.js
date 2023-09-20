@@ -28,7 +28,7 @@ export const usePedidosStore = defineStore({
                     precio: pedidos.precio,
                     titulo: pedidos.titulo,
                     cliente: pedidos.cliente.nombre,
-                    // id_cliente: pedidos.cliente.id,
+                    id_cliente: pedidos.cliente.id,
                 };
             });
             this.dataParseados = datosMapeados;
