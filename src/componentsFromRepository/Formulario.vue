@@ -124,6 +124,7 @@ export default {
               :type="data.type"
               :binary="true"
               autoResize
+              filter="data.search"
               rows="5"
               cols="30"
               @change="$emit('change', datosEditar)"

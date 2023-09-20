@@ -12,32 +12,19 @@ import Pedidos from "@/limits/Pedidos";
 
 const pedidosStore = usePedidosStore();
 const clientesStore = useClientesStore();
-const camposTabla = ref([
-  // { campo: "fecha", label: "Fecha" },
-  { campo: "titulo", label: "Título" },
-  { campo: "descripcion", label: "Descripción" },
-  { campo: "precio", label: "Precio" },
-  { campo: "categoria", label: "Categoria" },
-  { campo: "cliente", label: "Cliente" },
-]);
 
-const buttonsDataTable = ref([
-  {
-    icon: "pi pi-pencil",
-    class: "p-button-rounded p-button-success p-mr-2",
-    click: "edit",
-  },
-  // {
-  //   icon: "pi pi-trash",
-  //   class: "p-button-rounded p-button-warning p-mr-2",
-  //   click: "remove",
-  // },
-]);
+const camposTabla = ref(Pedidos().camposTabla);
+const buttonsDataTable = ref(Pedidos().buttonsDataTable);
+const camposForm = ref(Pedidos().camposForm);
+const buttonsForm = ref(Pedidos().buttonsForm);
+let clientesSubscription = gql(Pedidos().querys.getClientes);
 
 const edit = (data) => {
+  console.error("edit", data);
   tipo.value = "editar";
   showForm.value = true;
   pedidosStore.selected = data;
+  // pedidosStore.selected.cliente = data.cliente.id;
 };
 
 const remove = (data) => {
@@ -57,8 +44,6 @@ const showForm = ref(false);
 
 const tipo = ref("");
 
-let clientesSubscription = gql(Pedidos().querys.getClientes);
-
 const { result: clientesResult } = useSubscription(clientesSubscription);
 const getClientes = computed(() => {
   if (clientesResult.value) {
@@ -66,44 +51,6 @@ const getClientes = computed(() => {
   }
   return clientesResult.value;
 });
-const clientes = ref([{ label: "hola", value: "hola" }]);
-// watch(clientesStore.clientesForDropdown, (newValue) => {
-//   clientes.value = newValue;
-// });
-
-const camposForm = ref([
-  // {
-  //   campo: "fecha",
-  //   tipo: "Calendar",
-  //   label: "Fecha del pedido",
-  //   type: "date",
-  // },
-  { campo: "categoria", tipo: "InputText", label: "Categoria", type: "text" },
-
-  {
-    campo: "cliente",
-    tipo: "Dropdown",
-    labelExt: "Cliente",
-    type: "text",
-    options: clientes,
-    // options: clientesStore.clientesForDropdown,
-  },
-
-  // { campo: "estado", tipo: "InputText", label: "Estado", type: "text" },
-  { campo: "precio", tipo: "InputNumber", label: "Precio", type: "number" },
-  {
-    campo: "descripcion",
-    tipo: "Textarea",
-    label: "Descripción",
-    type: "text",
-  },
-  { campo: "titulo", tipo: "InputText", label: "Titulo", type: "text" },
-]);
-
-const buttonsForm = ref([
-  { class: "m-2", click: "save", label: "Guardar" },
-  { class: "m-2", click: "cancel", label: "Cancelar" },
-]);
 
 const saveCreate = async (data) => {
   console.error("saveCreate", data);
@@ -150,7 +97,6 @@ onMounted(async () => {
     @create="create"
   ></DataTableRepository>
   <Dialog v-model:visible="showForm" modal class="flex p-2 align-center">
-    {{ clientesStore.clientesForDropdown }}
     <FormularioRepository
       v-if="tipo === 'crear'"
       title="Crear pedido"

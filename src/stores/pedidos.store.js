@@ -26,7 +26,9 @@ export const usePedidosStore = defineStore({
                     categoria: pedidos.categoria,
                     descripcion: pedidos.descripcion,
                     precio: pedidos.precio,
-                    titulo: pedidos.titulo
+                    titulo: pedidos.titulo,
+                    cliente: pedidos.cliente.nombre,
+                    // id_cliente: pedidos.cliente.id,
                 };
             });
             this.dataParseados = datosMapeados;
@@ -97,14 +99,15 @@ export const usePedidosStore = defineStore({
             try {
                 await apolloClient.mutate({
                     mutation: gql`
-                    mutation MyMutation($id: Int!, $descripcion: String, $precio: numeric, $titulo: String, $categoria: String) {
-                        update_pedidos_by_pk(pk_columns: {id: $id}, _set: {categoria: $categoria, descripcion: $descripcion, titulo: $titulo, precio: $precio}) {
+                    mutation MyMutation($id: Int!, $descripcion: String, $precio: numeric, $titulo: String, $categoria: String, $id_cliente: uuid) {
+                        update_pedidos_by_pk(pk_columns: {id: $id}, _set: {categoria: $categoria, descripcion: $descripcion, titulo: $titulo, precio: $precio, id_cliente: $id_cliente}) {
                             categoria
                         }
                     }
                     `,
                     variables: {
                         id: this.selected.id,
+                        id_cliente: this.selected.id_cliente,
                         categoria: this.selected.categoria,
                         descripcion: this.selected.descripcion,
                         precio: this.selected.precio,
@@ -124,13 +127,14 @@ export const usePedidosStore = defineStore({
             try {
                 await apolloClient.mutate({
                     mutation: gql`
-                        mutation MyMutation ($categoria: String!, $descripcion: String!, $precio: numeric!, $titulo: String!){
-                            insert_pedidos_one(object: {categoria: $categoria, descripcion:$descripcion, precio: $precio, titulo: $titulo}) {
+                        mutation MyMutation ($categoria: String!, $descripcion: String!, $precio: numeric!, $titulo: String!, $id_cliente: uuid!){
+                            insert_pedidos_one(object: {categoria: $categoria, descripcion:$descripcion, precio: $precio, titulo: $titulo, id_cliente: $id_cliente}) {
                                 categoria
                             }
                         }
                     `,
                     variables: {
+                        id_cliente: this.new.cliente,
                         categoria: this.new.categoria,
                         descripcion: this.new.descripcion,
                         precio: this.new.precio,

@@ -1,133 +1,40 @@
+import { useClientesStore } from "@/stores";
+import { computed } from "vue";
+
 export default function limits() {
+    const clientesStore = useClientesStore();
+
+    const optionsClientes = computed(() => {
+        return clientesStore.data.map((cliente) => {
+            console.error("cliente", cliente)
+            return { label: cliente.nombre, value: cliente.id };
+        });
+    });
+
+
+
     let list = {
-        camposFormCreate: [
+        camposForm: [
+            { campo: "titulo", tipo: "InputText", label: "Titulo", type: "text" },
+            
             {
-                campo: "boatName",
-                tipo: "InputText",
-                label: "Nombre del barco",
-                mandatory: true,
+                campo: "cliente",
+                tipo: "Dropdown",
+                label: "Cliente",
                 type: "text",
+                options: optionsClientes,
+                search: true,
+                // options: clientesStore.clientesForDropdown,
             },
+            { campo: "categoria", tipo: "InputText", label: "Categoria", type: "text" },
+
+            // { campo: "estado", tipo: "InputText", label: "Estado", type: "text" },
+            { campo: "precio", tipo: "InputNumber", label: "Precio", type: "number" },
             {
-                campo: "cabins",
-                tipo: "InputText",
-                label: "Cabinas",
-                mandatory: true,
-                type: "number",
-            },
-            {
-                campo: "bathrooms",
-                tipo: "InputText",
-                label: "Baños",
-                mandatory: true,
-                type: "number",
-            },
-            {
-                campo: "description",
+                campo: "descripcion",
                 tipo: "Textarea",
                 label: "Descripción",
-                mandatory: true,
                 type: "text",
-            },
-            {
-                campo: "fuel",
-                tipo: "InputText",
-                label: "Combustible",
-                mandatory: true,
-                type: "text",
-            },
-            {
-                campo: "location",
-                tipo: "InputText",
-                label: "Localización",
-                mandatory: true,
-                type: "text",
-            },
-            {
-                campo: "passengers",
-                tipo: "InputText",
-                label: "Pasajeros",
-                mandatory: true,
-                type: "number",
-            },
-            {
-                campo: "price",
-                tipo: "InputText",
-                label: "Precio",
-                mandatory: true,
-                type: "number",
-            },
-            {
-                campo: "size",
-                tipo: "InputText",
-                label: "Tamaño",
-                mandatory: true,
-                type: "number",
-            },
-        ],
-        camposFormEdit: [
-            {
-                campo: "boatName",
-                tipo: "InputText",
-                label: "Nombre del barco",
-                mandatory: true,
-                type: "text",
-            },
-            {
-                campo: "cabins",
-                tipo: "InputText",
-                label: "Cabinas",
-                mandatory: true,
-                type: "number",
-            },
-            {
-                campo: "bathrooms",
-                tipo: "InputText",
-                label: "Baños",
-                mandatory: true,
-                type: "number",
-            },
-            {
-                campo: "description",
-                tipo: "Textarea",
-                label: "Descripción",
-                mandatory: true,
-                type: "text",
-            },
-            {
-                campo: "fuel",
-                tipo: "InputText",
-                label: "Combustible",
-                mandatory: true,
-                type: "text",
-            },
-            {
-                campo: "location",
-                tipo: "InputText",
-                label: "Localización",
-                mandatory: true,
-                type: "text",
-            },
-            {
-                campo: "passengers",
-                tipo: "InputText",
-                label: "Pasajeros",
-                mandatory: true,
-                type: "number",
-            },
-            {
-                campo: "price",
-                tipo: "InputText",
-                label: "Precio",
-                mandatory: true,
-                type: "number",
-            },
-            {
-                campo: "size",
-                tipo: "InputText",
-                label: "Tamaño",
-                mandatory: true,
-                type: "number",
             },
         ],
         buttonsForm: [
@@ -135,15 +42,11 @@ export default function limits() {
             { class: "m-2", click: "cancel", label: "Cancelar" },
         ],
         camposTabla: [
-            { campo: "boatName", label: "Barco" },
-            { campo: "cabins", label: "Cabinas" },
-            { campo: "bathrooms", label: "Baños" },
-            { campo: "description", label: "Descripción" },
-            { campo: "fuel", label: "Combustible" },
-            { campo: "location", label: "Localización" },
-            { campo: "passengers", label: "Pasajeros" },
-            { campo: "price", label: "Precio" },
-            { campo: "size", label: "Tamaño" },
+            { campo: "titulo", label: "Título" },
+            { campo: "descripcion", label: "Descripción" },
+            { campo: "cliente", label: "Cliente" },
+            { campo: "precio", label: "Precio" },
+            { campo: "categoria", label: "Categoria" },
         ],
         buttonsDataTable: [
             {
@@ -151,11 +54,11 @@ export default function limits() {
                 class: "p-button-rounded p-button-success m-2",
                 click: "edit",
             },
-            {
-                icon: "pi pi-trash",
-                class: "p-button-rounded p-button-warning m-2",
-                click: "remove",
-            },
+            // {
+            //     icon: "pi pi-trash",
+            //     class: "p-button-rounded p-button-warning m-2",
+            //     click: "remove",
+            // },
         ],
         querys: {
             principal: `
@@ -166,6 +69,10 @@ export default function limits() {
                   id
                   precio
                   titulo
+                  cliente{
+                    id
+                    nombre
+                  }
                 }
               }
               
@@ -174,9 +81,11 @@ export default function limits() {
             getClientes: `
             subscription MySubscription {
                 clientes {
-                  nombre
-                  id
-                }
+                    email
+                    nombre
+                    tel
+                    id
+                  }
               }`
 
         },
