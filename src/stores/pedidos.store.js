@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { useAlertStore } from "@/stores";
 import apolloClient from "@/main.js";
 import { gql } from '@apollo/client/core'
+import moment from 'moment';
 
 export const usePedidosStore = defineStore({
     id: "pedidos",
@@ -29,6 +30,9 @@ export const usePedidosStore = defineStore({
                     titulo: pedidos.titulo,
                     cliente: pedidos.cliente.nombre,
                     id_cliente: pedidos.cliente.id,
+                    // moment date format + 1 day to avoid timezone issues
+                    fecha: moment(pedidos.fecha).add(1, 'days').format('DD-MM-YYYY'),
+                    // fecha: pedidos.fecha,
                 };
             });
             this.dataParseados = datosMapeados;
@@ -99,8 +103,8 @@ export const usePedidosStore = defineStore({
             try {
                 await apolloClient.mutate({
                     mutation: gql`
-                    mutation MyMutation($id: Int!, $descripcion: String, $precio: numeric, $titulo: String, $categoria: String, $id_cliente: uuid) {
-                        update_pedidos_by_pk(pk_columns: {id: $id}, _set: {categoria: $categoria, descripcion: $descripcion, titulo: $titulo, precio: $precio, id_cliente: $id_cliente}) {
+                    mutation MyMutation($id: Int!, $descripcion: String, $precio: numeric, $titulo: String, $categoria: String, $id_cliente: uuid, $fecha: date) {
+                        update_pedidos_by_pk(pk_columns: {id: $id}, _set: {categoria: $categoria, descripcion: $descripcion, titulo: $titulo, precio: $precio, id_cliente: $id_cliente, fecha: $fecha}) {
                             categoria
                         }
                     }
@@ -111,7 +115,8 @@ export const usePedidosStore = defineStore({
                         categoria: this.selected.categoria,
                         descripcion: this.selected.descripcion,
                         precio: this.selected.precio,
-                        titulo: this.selected.titulo
+                        titulo: this.selected.titulo,
+                        fecha: this.selected.fecha,
                     }
                 });
 
@@ -127,8 +132,8 @@ export const usePedidosStore = defineStore({
             try {
                 await apolloClient.mutate({
                     mutation: gql`
-                        mutation MyMutation ($categoria: String!, $descripcion: String!, $precio: numeric!, $titulo: String!, $id_cliente: uuid!){
-                            insert_pedidos_one(object: {categoria: $categoria, descripcion:$descripcion, precio: $precio, titulo: $titulo, id_cliente: $id_cliente}) {
+                        mutation MyMutation ($categoria: String!, $descripcion: String!, $precio: numeric!, $titulo: String!, $id_cliente: uuid!, $fecha: date){
+                            insert_pedidos_one(object: {categoria: $categoria, descripcion:$descripcion, precio: $precio, titulo: $titulo, id_cliente: $id_cliente, fecha: $fecha}) {
                                 categoria
                             }
                         }
@@ -138,7 +143,8 @@ export const usePedidosStore = defineStore({
                         categoria: this.new.categoria,
                         descripcion: this.new.descripcion,
                         precio: this.new.precio,
-                        titulo: this.new.titulo
+                        titulo: this.new.titulo,
+                        fecha: this.new.fecha,
                     }
                 });
                 alertStore.success("Pedido añadido correctamente");

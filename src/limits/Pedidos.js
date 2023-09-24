@@ -16,7 +16,7 @@ export default function limits() {
     let list = {
         camposForm: [
             { campo: "titulo", tipo: "InputText", label: "Titulo", type: "text" },
-            
+
             {
                 campo: "cliente",
                 tipo: "Dropdown",
@@ -25,6 +25,14 @@ export default function limits() {
                 options: optionsClientes,
                 search: true,
                 // options: clientesStore.clientesForDropdown,
+            },
+            {
+                campo: "fecha",
+                tipo: "Calendar",
+                label: "Fecha",
+                mandatory: true,
+                disabled: false,
+                type: "date",
             },
             { campo: "categoria", tipo: "InputText", label: "Categoria", type: "text" },
 
@@ -43,9 +51,10 @@ export default function limits() {
         ],
         camposTabla: [
             { campo: "titulo", label: "Título" },
-            { campo: "descripcion", label: "Descripción" },
             { campo: "cliente", label: "Cliente" },
+            { campo: "fecha", label: "Fecha" },
             { campo: "precio", label: "Precio" },
+            { campo: "descripcion", label: "Descripción" },
             { campo: "categoria", label: "Categoria" },
         ],
         buttonsDataTable: [
@@ -69,6 +78,7 @@ export default function limits() {
                   id
                   precio
                   titulo
+                  fecha
                   cliente{
                     id
                     nombre
